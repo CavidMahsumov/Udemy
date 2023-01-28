@@ -1,0 +1,29 @@
+﻿@model Udemy.WebUI.Models.UserViewModel
+
+
+@{
+    Layout = "~/Views/Shared/_LayoutForInstructor.cshtml";
+}
+
+
+<div class="container">
+
+    <div class="container bg-white" style="box-shadow:5px 10px 18px #888888;display:flex;align-items:center;margin-top:140px;">
+        <h2 class="h2 ms-5 p-5" style="font-size:1.5em;font-weight:500;">Jump Into Course Creation</h2>
+        <a asp-controller="Instructor" asp-action="CreateCourse" class="btn p-5 pt-2 pb-2" style="background-color:darkviolet;margin-left:500px;color:white;font-size:1.3em;font-weight:600;border-radius:2px;">Create Your Course</a>
+    </div>
+    <p style="font-size:1.4em;font-weight:400;margin-left:310px;margin-top:130px;">Based on your experience, we think these resources will be helpful.</p>
+    <div class="container bg-white" style="box-shadow:5px 10px 18px #888888;display:flex;align-items:center;margin-top:140px;">
+        <img class="p-3" src="~/Images/engaging-course.jpg" width="220px" height="220px" style="margin-left:130px;" />
+        <div class="bg-transparent p-4" style="margin-left:200px;">
+            <h1 class="h1 pt-3" style="font-size:1.6em;font-weight:600">Create an Engaging Course</h1>
+            <p style="font-size:1em;font-weight:400;" class="pt-4">Whether you've been teaching for years or are teaching for the first time, you can make an engaging course. We've compiled resources and best practices to help you get to the next level, no matter where you're starting.</p>
+            <a class="mt-3" style="color:darkviolet;font-size:1.1em;text-decoration:none;cursor:pointer;">Get Started</a>
+        </div>
+    </div>
+    <p style="font-size:1.2em;font-weight:400;padding-left:550px;padding-top:130px;">Are You Ready to Begin?</p>
+    <a asp-controller="Instructor" asp-action="CreateCourse" class="btn p-5 pt-2 pb-2 mt-3 mb-4" style="background-color:darkviolet;margin-left:520px;color:white;font-size:1.3em;font-weight:600;border-radius:2px;">Create Your Course</a>
+
+
+
+</div>

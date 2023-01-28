@@ -1,0 +1,177 @@
+﻿@model Udemy.WebUI.Models.AdminViewModel;
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>@ViewBag.Title</title>
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.css" />
+    <link rel="stylesheet"
+          href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css" integrity="sha512-MV7K8+y+gLIBoVD59lQIYicR65iaqukzvf/nwasF0nqhPay5w/9lJmVM2hMDcnK1OnMGCdVK+iQrJ7lzPJQd1w==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"></script>
+    <style>
+        a {
+            font-size: 14px;
+            font-weight: 700
+        }
+
+        /*.superNav {
+                                                                                                    font-size: 13px;
+                                                                                                }*/
+
+        .form-control {
+            outline: none !important;
+            box-shadow: none !important;
+        }
+
+        .dropdown:hover .dropdown-menu {
+            display: block;
+        }
+
+        .dropdown-menu.show {
+        }
+
+        .dropdown-item {
+            width: 100% !important;
+        }
+
+        footer {
+            position: fixed;
+            left: 0;
+            bottom: 0;
+            width: 100%;
+        }
+
+        .offcanvas{
+            width:300px;
+        }
+    </style>
+</head>
+<body>
+    <div>
+        <nav class="navbar navbar-expand-lg navbar-light bg-light">
+            <button class="navbar-toggler ms-3" type="button" data-bs-toggle="offcanvas" data-bs-target="#navbarNavOffCanvas" aria-controls="navbarNavOffCanvas" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <a class="navbar-brand mx-auto d-sm-block ms-lg-4" href="/Admin/Index"><img src="~/Images/Udemy_logo.svg.png" height="38" alt="CoolBrand"> </a>
+            <div class="me-3 d-lg-none d-md-block d-xs-block">
+                @*<div class="input-group">
+                <span class="border-dark input-group-text bg-dark text-white"><i class="fa-solid fa-magnifying-glass"></i></span>
+                <input type="text" class="form-control border-dark" style="color:#7a7a7a">
+                <button class="btn btn-dark text-white">Search</button>
+                </div>*@
+                <a href="#searchBox" data-bs-toggle="collapse"><i class="fa-solid fa-magnifying-glass fa-lg"></i></a>
+
+            </div>
+
+
+
+            <div class="offcanvas offcanvas-start ms-auto" tabindex="-1" id="navbarNavOffCanvas" aria-labelledby="offcanvasNavbarLabel">
+                <div class="offcanvas-header">
+                    @*<h5 class="offcanvas-title" id="offcanvasNavbarLabel">Dark offcanvas</h5>*@
+                    <ul class="navbar-nav ms-3 flex-grow-1 pe-3">
+                        <li class="nav-item d-block d-lg-none">
+                            <a class="nav-link mx-2" asp-controller="Account" asp-action="Manage">@User.Identity.Name</a>
+                        </li>
+                        <li class="nav-item d-block d-lg-none">
+                            <a class="nav-link mx-2 ms-1" asp-controller="Account" asp-action="Logout">LogOut</a>
+                        </li>
+
+                    </ul>
+                    <button type="button" class="btn-close btn-close-dark" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+                </div>
+                <hr class="d-lg-none" />
+                <div class="offcanvas-body">
+                    <ul class="navbar-nav ms-3 flex-grow-1 pe-3">
+
+
+                        <li class="nav-item dropdown ms-4 d-none d-lg-block">
+                            <a asp-controller="Admin" asp-action="CategoryList" class="nav-link">
+                                Categories
+                            </a>
+                            @*<ul class="dropdown-menu">
+                            @foreach (var category in Model.Categories)
+                            {
+
+                            <li> <a class="dropdown-item" href="#">@category.CategoryName</a>  </li>
+                            }
+                            </ul>*@
+                        </li>
+
+
+
+                        <li class="nav-item ms-5">
+                            <div class="ms-auto d-none d-lg-block">
+                                <div class="input-group">
+                                    <span class="border-dark input-group-text bg-dark text-white"><i class="fa-solid fa-magnifying-glass"></i></span>
+                                    <input type="text" class="form-control border-dark" style="color:#7a7a7a;width:830px;">
+                                    <button class=" btn btn-dark text-white">Search</button>
+                                </div>
+                            </div>
+                        </li>
+
+
+
+
+                        <li class="nav-item">
+                            <a class="nav-link mx-2 ms-5" asp-controller="Admin" asp-action="AddCategory">Add Category</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link mx-2" asp-controller="Admin" asp-action="RoleCreate">Add Role</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link mx-2" asp-controller="Admin" asp-action="RoleList">Role List</a>
+                        </li>
+                        <form asp-controller="User" asp-action="Index" method="post">
+
+                        <li class="nav-item">
+                            <input type="hidden" asp-for="@Model.AdminOrUser" value="true" />
+                            <button class="nav-link mx-2 ms-5" type="submit">User Profile</button>
+                        </li>
+                        </form>
+
+                        <li class="nav-item d-none d-lg-block">
+                            <a class="nav-link mx-2 ms-5" asp-controller="Account" asp-action="Manage"> <img height="25" width="25" src="~/Images/47774.png" /> </a>
+                        </li>
+                        @*<li class="nav-item d-none d-lg-block">
+                        <a class="nav-link mx-2 ms-1" asp-controller="Account" asp-action="Logout"><i class="fa-solid fa-right-from-bracket fa-lg"></i></a>
+                        </li>*@
+
+                    </ul>
+                </div>
+            </div>
+
+
+
+        </nav>
+        <div id="searchBox" class="input-group collapse">
+            <span class="border-dark input-group-text bg-dark text-white"><i class="fa-solid fa-magnifying-glass"></i></span>
+            <input type="text" class="form-control border-dark" style="color:#7a7a7a">
+            <button class="btn btn-dark text-white">Search</button>
+        </div>
+
+        <div class="col-md-10 w-100">
+            @if (TempData["message"] != null)
+            {
+                <div class="alert alert-info animate__animated animate__backInLeft" role="alert">@TempData["message"]</div>
+            }
+            @RenderBody()
+        </div>
+        @RenderBody()
+        <div class="d-flex flex-column">
+            <footer id="sticky-footer" class="flex-shrink-0 py-4 bg-dark text-white-50">
+                <div class="container text-center">
+                    <small>Copyright &copy; Udemy</small>
+                </div>
+            </footer>
+        </div>
+    </div>
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+    <script src="~/lib/jquery-validation/dist/jquery.validate.js"></script>
+    <script src="~/lib/jquery-validation-unobtrusive/jquery.validate.unobtrusive.js"></script>
+</body>
+</html>

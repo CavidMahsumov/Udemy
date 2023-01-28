@@ -1,0 +1,48 @@
+﻿@model Udemy.WebUI.Models.AdminViewModel;
+
+
+@{
+    Layout = "~/Views/Shared/_LayoutForAdmin.cshtml";
+}
+
+
+
+<h1 style="margin-left:500px;" class="text-center border-bottom-0 border border-dark rounded-top-2 p-2 w-50 mt-5 ">SubCategories</h1>
+<a asp-controller="Admin" asp-action="AddSubCategory" class="btn btn-success text-center w-50" style="margin-left:500px;">Add SubCategory</a>
+
+
+
+
+<table style="margin-left:500px;" class="table table-dark table-striped w-50">
+    <thead>
+        @*<tr>
+        <th scope="col">Id</th>
+        <th scope="col">Category</th>
+        </tr>*@
+
+    </thead>
+    <tbody>
+        @foreach (var subCategory in Model.SubCategories)
+        {
+
+            <tr>
+                <th scope="row">@subCategory.SubCategoryId</th>
+                <td>
+                    @subCategory.SubCategoryName
+                </td>
+                <td>
+                    <form asp-controller="Admin" asp-action="RemoveSubCategory" method="post" style="display:inline;">
+                        <input type="hidden" name="subCategoryId" value="@subCategory.SubCategoryId" />
+                        <button type="submit" class="btn btn-danger" style="cursor:pointer;">Remove SubCategory</button>
+                    </form>
+                    <form asp-controller="Admin" asp-action="TopicList" method="post">
+                        <input type="hidden" name="subCategoryId" value="@subCategory.SubCategoryId" />
+                        <button type="submit" class="btn btn-primary" style="cursor:pointer;">Topics</button>
+                    </form>
+                </td>
+            </tr>
+        }
+
+    </tbody>
+
+</table>

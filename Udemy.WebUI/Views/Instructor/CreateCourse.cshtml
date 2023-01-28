@@ -1,0 +1,215 @@
+﻿@model Udemy.WebUI.Models.TeacherAccountViewModel;
+
+
+@{
+    Layout = "~/Views/Shared/_LayoutForModel.cshtml";
+}
+
+<link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.css" />
+<link rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css" integrity="sha512-MV7K8+y+gLIBoVD59lQIYicR65iaqukzvf/nwasF0nqhPay5w/9lJmVM2hMDcnK1OnMGCdVK+iQrJ7lzPJQd1w==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"></script>
+
+
+
+<form asp-controller="Instructor" asp-action="CreateCourse" method="post" enctype="multipart/form-data">
+
+
+    <div id="FirstPage" class="container text-center">
+        <div class="createDiv mt-5 p-5" style="border: 1px solid darkviolet;border-radius: 5px;box-shadow: 5px 5px 18px #8888;">
+            <h1 class="pt-5" style="font-size: 1.5em;font-weight: 600;">
+                Please add photo and write Course title
+            </h1>
+            <div class="text-center">
+                <input type="hidden" asp-for="@Model.CourseViewModel.ImagePath"/>
+                @*<img src="/Images/" class="w-25 p-4 mt-3 d-inline-block" height="10%" style="border: 1px solid darkviolet;border-radius: 2px;">*@
+                <input type="file" name="file" class="text-center d-inline-block">
+            </div>
+            <input asp-for="@Model.CourseViewModel.CourseTitle" type="text" class="mt-2 w-50 ms-4 p-2" placeholder="Course Title" style="font-size:1.2em;font-weight:500;color:black;border: 1px solid darkviolet;border-radius: 2px;">
+
+
+        </div>
+        <button type="button" id="NextBtn" class="btn mt-4 w-50" style="border-radius: 2px;background-color: darkviolet;color: white;font-size: 1.5em;font-weight: 400;">Next</button>
+    </div>
+
+
+    <div id="SecondPage" class="container h-50 text-center">
+        <div class="mt-5 p-5" style="border: 1px solid darkviolet;border-radius: 5px;box-shadow: 5px 5px 18px #8888;">
+            <h1 class="pt-5" style="font-size: 1.5em;font-weight: 600;">
+                Please select your course payment type and course details.
+            </h1>
+            <div style="text-align: center;">
+                <input asp-for="@Model.CourseViewModel.CourseContent" type="text" class="w-50 h-50 p-3" placeholder="Course Content" style="font-size: 1.3em;border: 1px solid darkviolet;border-radius: 2px;">
+                <input asp-for="@Model.CourseViewModel.Description" type="text" class="w-50 h-50 p-3 mt-2" placeholder="Course Description" style="font-size: 1.3em;border: 1px solid darkviolet;border-radius: 2px;">
+                <div id="ObjectivesAndOutcomes" class="mt-3 text-center">
+
+                    <div class="form-check w-25">
+                        <input asp-for="@Model.CourseViewModel.PaidOrFree" class="form-check-input" type="checkbox" name="flexRadioDefault" id="flexRadioDefault2" checked>
+                        <label class="form-check-label" for="flexRadioDefault2">
+                            Paid
+                        </label>
+                    </div>
+                    <input id="objective" type="text" class="d-block" placeholder="Objective And Outcome" style="border: 1px solid darkviolet;border-radius: 2px;height: 30px;width: 450px;padding: 10px;margin-left: 280px;margin-top: 20px;">
+                </div>
+                <button type="button" id="NewObjectiveAndOutcomes" onclick="AddNewInput()" class="btn btn-primary mt-3" style="font-size: 120%;">New</button>
+            </div>
+        </div>
+        <button type="button" id="NextBtn1" class="btn mt-4 w-50" style="border-radius: 2px;background-color: darkviolet;color: white;font-size: 1.5em;font-weight: 400;">Next</button>
+    </div>
+
+    <div id="ThreePage" class="container h-50 text-center">
+        <div id="selectDiv" class="mt-5 p-5" style="border: 1px solid darkviolet;border-radius: 5px;box-shadow: 5px 5px 18px #8888;">
+            <h1 class="pt-5" style="font-size: 1.5em;font-weight: 600;">
+                Course details.
+            </h1>
+            <div style="text-align:center;">
+
+                <input asp-for="@Model.CourseViewModel.CategoryName" type="text" class="w-50 h-50 p-3" placeholder="Course Category" style="font-size: 1.3em;border: 1px solid darkviolet;border-radius: 2px;">
+                <input asp-for="@Model.CourseViewModel.SubCategoryName" type="text" class="w-50 h-50 p-3 mt-2" placeholder="Course Sub Category" style="font-size: 1.3em;border: 1px solid darkviolet;border-radius: 2px;">
+                <input asp-for="@Model.CourseViewModel.TopicName" type="text" class="w-50 h-50 p-3 mt-2" placeholder="Course Topic" style="font-size: 1.3em;border: 1px solid darkviolet;border-radius: 2px;">
+                <select id="select" class="form-select mt-2 w-50 h-50" style="margin-left:300px; font-size: 1.3em;border:1px solid darkviolet" aria-label="Default select example">
+                    <option selected>Paid Or Free</option>
+                    <option value="Paid">Paid</option>
+                    <option value="Free">Free</option>
+                </select>
+                <input id="Price" asp-for="@Model.CourseViewModel.Price" type="text" class="w-50 h-50 p-3 mt-2" placeholder="Course Price" style="font-size: 1.3em;border: 1px solid darkviolet;border-radius: 2px;">
+                <input id="paidOrFreeInput" type="hidden" asp-for="@Model.CourseViewModel.PaidOrFree"/>
+                @*<h2 id="subcategoryH" class="h2" style="font-size:1.2em;">Sub Category</h2>*@
+                @*<select id="select2" class="form-select mt-2" aria-label="Default select example">
+                </select>*@
+                @*<h2 id="topicH" class="h2" style="font-size:1.2em;">Topic</h2>*@
+                @*<select id="select3" class="form-select mt-2" aria-label="Default select example">
+                </select>*@
+            </div>
+        </div>
+        <button type="submit" id="submitbtn" >Submit</button>
+
+    </div>
+</form>
+
+@*<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>*@
+<script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+<script src="~/lib/jquery-validation/dist/jquery.validate.js"></script>
+<script src="~/lib/jquery-validation-unobtrusive/jquery.validate.unobtrusive.js"></script>
+
+<script>
+    $("#SecondPage").hide();
+
+    $("#NextBtn").click(function () {
+        $("#FirstPage").hide();
+        $("#SecondPage").show();
+    });
+
+    $("#ThreePage").hide();
+    $("#NextBtn1").click(function () {
+        $("#SecondPage").hide();
+        $("#ThreePage").show();
+    });
+
+    $("#Price").hide();
+
+    $('#select').change(function () {
+        $("#Price").show();
+        $("#paidOrFreeInput").val($(this).val());
+        console.log($("#paidOrFreeInput").val());
+    });
+    //$('#select2').change(function () {
+    //    $("#SubCategoryId").val($(this).val());
+    //    console.log($("Sub Category ID : "+"#SubCategoryId").val());
+    //});
+
+    //$('#select3').change(function () {
+    //    $("#TopicId").val($(this).val());
+    //    console.log($("Topic ID : " + "#TopicId").val());
+    //});
+
+    //page 4 codes
+
+    //$("#select2").hide();
+    //$("#subcategoryH").hide();
+
+    //$(document).ready(function () {
+    //    $(document).on("change", "#select", function () {
+    //        var subCat = this;
+    //        $.ajax({
+    //            url: "/Instructor/ReturnJsonSubCategories/?categoryId=" + $(subCat).val(),
+    //            type: "GET",
+    //            contentType: "application/json; charset=utf-8",
+    //            datatype: JSON,
+    //            success: function (result) {
+    //                var categories = "";
+    //                $(result).each(function () {
+    //                    categories = categories + '<option selected>Sub Category</option> <option value="' + this.SubCategoryId + '">' + this.SubCategoryName + '</option>'
+    //                });
+    //                console.log(categories)
+    //                var subCateList = $("#select2");
+    //                subCateList.empty();
+    //                subCateList.append(categories);
+    //                $("#select2").show();
+    //                $("#subcategoryH").show();
+    //            },
+    //            error: function (data) {
+    //                console.log(data)
+    //                return "Error";
+    //            }
+    //        });
+    //    });
+    //});
+
+
+    //$("#select3").hide();
+    //$("#topicH").hide();
+    //$(document).ready(function () {
+    //    $(document).on("change", "#select2", function () {
+    //        var subCateg = this;
+    //        $.ajax({
+    //            url: "/Instructor/ReturnJsonTopics/?subCategoryId=" + $(subCateg).val(),
+    //            type: "GET",
+    //            contentType: "application/json; charset=utf-8",
+    //            datatype: JSON,
+    //            success: function (result) {
+    //                var subcategories = "";
+    //                $(result).each(function () {
+    //                    subcategories = subcategories + '<option value="' + this.TopicId + '">' + this.TopicName + '</option>'
+    //                });
+    //                console.log(subcategories)
+    //                var topicList = $("#select3");
+    //                topicList.empty();
+    //                topicList.append(subcategories);
+    //                $("#select3").show();
+    //                $("#topicH").show();
+    //            },
+    //            error: function (data) {
+    //                console.log(data)
+    //                return "Error";
+    //            }
+    //        });
+    //    });
+    //});
+
+
+
+    function AddNewInput() {
+        var myparent = document.getElementById("ObjectivesAndOutcomes");
+        var myinput;
+        var counter = 0;
+        myinput = document.createElement('input');
+        myinput.setAttribute('id', 'objective' + newButtonCounter)
+        myinput.setAttribute('type', 'text');
+        myinput.setAttribute('placeholder', 'Objective And Outcome');
+        myinput.style.display = "block";
+        myinput.style.padding = "10px";
+        myinput.style.marginLeft = "280px";
+        myinput.style.marginTop = "10px";
+        myinput.style.height = "30px";
+        myinput.style.width = "450px";
+        myinput.style.border = "1px solid darkviolet";
+        myinput.style.borderRadius = "2px";
+        myparent.appendChild(myinput);
+    }
+
+</script>

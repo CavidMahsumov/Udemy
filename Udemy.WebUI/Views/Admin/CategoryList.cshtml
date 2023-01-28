@@ -1,0 +1,49 @@
+﻿@model Udemy.WebUI.Models.AdminViewModel;
+
+
+@{
+    Layout = "~/Views/Shared/_LayoutForAdmin.cshtml";
+}
+
+@if (Model.Categories.Count > 0)
+{
+
+    <h1 style="margin-left:500px;" class="text-center border-bottom-0 border border-dark rounded-top-2 p-2 w-50 mt-5 ">Categories</h1>
+}
+else{
+    <h1 style="margin-left:500px;" class="text-center border border-dark rounded-top-2 p-2 w-50 mt-5 ">No Category</h1>
+}
+
+
+<table style="margin-left:500px;" class="table table-hover w-50">
+    <thead>
+        @*<tr>
+        <th scope="col">Id</th>
+        <th scope="col">Category</th>
+        </tr>*@
+
+    </thead>
+    <tbody>
+        @foreach (var category in Model.Categories)
+        {
+
+            <tr href="/Admin/SubCategoryList">
+                <th scope="row">@category.CategoryId</th>
+                <td>
+                    @category.CategoryName
+                </td>
+                <td>
+                    <form asp-controller="Admin" asp-action="RemoveCategory" method="post" style="display:inline; margin-left:100px;">
+                        <input type="hidden" name="categoryId" value="@category.CategoryId" />
+                        <button type="submit" class="btn btn-danger" style="cursor:pointer;">Remove Category</button>
+                    </form>
+                    <form asp-controller="Admin" asp-action="SubCategoryList" method="post" style="display:inline; margin-left:10px;">
+                        <input type="hidden" name="categoryId" value="@category.CategoryId" />
+                        <button type="submit" class="btn btn-primary" style="cursor:pointer;">SubCategories</button>
+                    </form>
+                </td>
+            </tr>
+        }
+
+    </tbody>
+</table>
