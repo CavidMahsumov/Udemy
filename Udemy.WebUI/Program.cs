@@ -60,6 +60,8 @@ builder.Services.Configure<IdentityOptions>(options =>
 
 );
 
+builder.Services.AddSession();
+
 builder.Services.ConfigureApplicationCookie(options => {
     options.LoginPath = "/Account/Login";
     options.LogoutPath = "/Account/Logout";
@@ -94,6 +96,8 @@ app.UseAuthentication();
 app.UseRouting();
 
 app.UseAuthorization();
+
+app.UseSession();
 
 
 app.MapControllerRoute(

@@ -2,6 +2,6 @@
 {
     public interface IStorageService
     {
-        Task UploadPhoto(IFormFile file);
+        Task<Uri> UploadPhoto(IFormFile file);
     }
 }

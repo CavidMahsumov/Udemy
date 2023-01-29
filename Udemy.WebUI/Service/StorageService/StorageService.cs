@@ -13,7 +13,7 @@ namespace Udemy.WebUI.Service
             _configuration = configuration;
         }
 
-        public async Task UploadPhoto(IFormFile file)
+        public async Task<Uri> UploadPhoto(IFormFile file)
         {
 
             string systemFileName = file.FileName;
@@ -30,6 +30,8 @@ namespace Udemy.WebUI.Service
             {
                 await blockBlob.UploadFromStreamAsync(data);
             }
+            CloudBlockBlob blob = container.GetBlockBlobReference(file.FileName);
+            return blob.Uri;
 
 
 

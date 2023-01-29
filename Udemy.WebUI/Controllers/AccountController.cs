@@ -100,7 +100,7 @@ namespace Udemy.WebUI.Controllers
 
                 //await _emailSender.SendEmailAsync(model.Email, "Hesabi Dogrulayin", $" Linke tiklayin <a href='https://localhost:27357{url}'>Onayla</a>");
 
-                await _userManager.AddToRoleAsync(user, "Users");
+               await _userManager.AddToRoleAsync(user, "Users");
 
                 return RedirectToAction("Login", "Account");
 

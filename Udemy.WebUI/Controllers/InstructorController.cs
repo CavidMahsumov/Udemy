@@ -35,6 +35,7 @@ namespace Udemy.WebUI.Controllers
 
         private readonly IStorageService _storageService;
         private readonly IConfiguration _configuration;
+        Uri coursephotouri = null;
 
         public InstructorController(UserManager<User> userManager, ICourseService courseService, IVideoService videoService, ISubCategoryService subCategoryService, ITopicService topicService, ICategoryService categoryService, IWebHostEnvironment webHost, IHttpContextAccessor httpContextAccessor, ITeacherService teacherService, IStorageService storageService, IConfiguration configuration)
         {
@@ -116,6 +117,7 @@ namespace Udemy.WebUI.Controllers
         {
             var userId = httpContextAccessor.HttpContext.User?.FindFirstValue(ClaimTypes.NameIdentifier);
             var user = await _userManager.FindByIdAsync(userId);
+            
             foreach (var teacher in _teacherService.GetAll())
             {
                 if (teacher.MyUserId == user.Id)
@@ -132,7 +134,7 @@ namespace Udemy.WebUI.Controllers
                         //    await file.CopyToAsync(stream);
                         //}
                         model.CourseViewModel.ImagePath = file.FileName;
-                        await _storageService.UploadPhoto(file);
+                        coursephotouri =await _storageService.UploadPhoto(file);
                         
                     }
 

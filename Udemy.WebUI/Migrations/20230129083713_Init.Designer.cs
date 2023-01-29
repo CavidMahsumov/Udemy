@@ -12,7 +12,7 @@ using Udemy.WebUI.Identity;
 namespace Udemy.WebUI.Migrations
 {
     [DbContext(typeof(ApplicationContext))]
-    [Migration("20230128172529_Init")]
+    [Migration("20230129083713_Init")]
     partial class Init
     {
         /// <inheritdoc />

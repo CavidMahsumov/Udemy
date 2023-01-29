@@ -11,6 +11,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <PackageReference Include="Microsoft.AspNetCore.Http.Extensions" Version="2.2.0" />
     <PackageReference Include="Microsoft.AspNetCore.Identity.EntityFrameworkCore" Version="6.0.0" />
     <PackageReference Include="Microsoft.EntityFrameworkCore" Version="7.0.0" />
     <PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="7.0.0">
@@ -29,6 +30,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\Udemy.Business\Udemy.Business.csproj" />
+    <ProjectReference Include="..\Udemy.Common\Udemy.Common.csproj" />
     <ProjectReference Include="..\Udemy.DataAccess\Udemy.DataAccess.csproj" />
   </ItemGroup>
 
