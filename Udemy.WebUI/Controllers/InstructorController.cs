@@ -290,7 +290,7 @@ namespace Udemy.WebUI.Controllers
                     c.TeacherId = teacher.TeacherId;
                 }
             }
-            return RedirectToAction("MyCourses", "Instructor");
+            return RedirectToAction("Home", "Index");
         }
 
 
