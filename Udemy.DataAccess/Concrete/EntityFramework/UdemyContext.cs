@@ -27,6 +27,7 @@ namespace Udemy.DataAccess.Concrete.EntityFramework
         public DbSet<ObjectiveAndOutcomes> Objectives { get; set; }
         public DbSet<Teacher> Teachers { get; set; }
         public DbSet<Requirement> Requirements { get; set; }
+        public DbSet<Cart> Carts { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {

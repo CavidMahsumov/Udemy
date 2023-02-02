@@ -79,5 +79,14 @@ namespace Udemy.WebUI.Controllers
 
         }
 
+        public IActionResult  ShowCart(CartListViewModel model)
+        {
+
+            var model=new CartListViewModel
+            {
+                 Courses=
+            }
+            return RedirectToAction("Index", "Cart");
+        }
     }
 }

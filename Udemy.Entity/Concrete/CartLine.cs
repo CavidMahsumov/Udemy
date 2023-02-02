@@ -8,6 +8,7 @@ namespace Udemy.Entity.Concrete
 {
     public class CartLine
     {
+        public int CartLineId { get; set; }
         public Course Course { get; set; }
         public int Quantity { get; set; }
     }

@@ -22,6 +22,45 @@ namespace Udemy.DataAccess.Migrations
 
             SqlServerModelBuilderExtensions.UseIdentityColumns(modelBuilder);
 
+            modelBuilder.Entity("Udemy.Entity.Concrete.Cart", b =>
+                {
+                    b.Property<int>("CartId")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("CartId"));
+
+                    b.HasKey("CartId");
+
+                    b.ToTable("Carts");
+                });
+
+            modelBuilder.Entity("Udemy.Entity.Concrete.CartLine", b =>
+                {
+                    b.Property<int>("CartLineId")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("CartLineId"));
+
+                    b.Property<int?>("CartId")
+                        .HasColumnType("int");
+
+                    b.Property<int>("CourseId")
+                        .HasColumnType("int");
+
+                    b.Property<int>("Quantity")
+                        .HasColumnType("int");
+
+                    b.HasKey("CartLineId");
+
+                    b.HasIndex("CartId");
+
+                    b.HasIndex("CourseId");
+
+                    b.ToTable("CartLine");
+                });
+
             modelBuilder.Entity("Udemy.Entity.Concrete.Category", b =>
                 {
                     b.Property<int>("CategoryId")
@@ -256,6 +295,22 @@ namespace Udemy.DataAccess.Migrations
                     b.ToTable("Videos");
                 });
 
+            modelBuilder.Entity("Udemy.Entity.Concrete.CartLine", b =>
+                {
+                    b.HasOne("Udemy.Entity.Concrete.Cart", null)
+                        .WithMany("CartLines")
+                        .HasForeignKey("CartId")
+                        .OnDelete(DeleteBehavior.Restrict);
+
+                    b.HasOne("Udemy.Entity.Concrete.Course", "Course")
+                        .WithMany()
+                        .HasForeignKey("CourseId")
+                        .OnDelete(DeleteBehavior.Restrict)
+                        .IsRequired();
+
+                    b.Navigation("Course");
+                });
+
             modelBuilder.Entity("Udemy.Entity.Concrete.Comment", b =>
                 {
                     b.HasOne("Udemy.Entity.Concrete.Course", null)
@@ -335,6 +390,11 @@ namespace Udemy.DataAccess.Migrations
                         .WithMany("CourseVideos")
                         .HasForeignKey("CourseId")
                         .OnDelete(DeleteBehavior.Restrict);
+                });
+
+            modelBuilder.Entity("Udemy.Entity.Concrete.Cart", b =>
+                {
+                    b.Navigation("CartLines");
                 });
 
             modelBuilder.Entity("Udemy.Entity.Concrete.Category", b =>
