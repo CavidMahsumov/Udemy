@@ -4,6 +4,6 @@ namespace Udemy.WebUI.Models
 {
     public class CartListViewModel
     {
-        public List<Course> Courses { get; set; }
+        public Cart Cart { get; set; }
     }
 }

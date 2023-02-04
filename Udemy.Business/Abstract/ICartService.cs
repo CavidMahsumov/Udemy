@@ -10,8 +10,9 @@ namespace Udemy.Business.Abstract
     public interface ICartService
     {
         void AddToCart(Cart cart, Course product);
-        void RemoveFromCart(Cart cart, int productId);
+        void RemoveFromCart(Cart cart, int courseId);
+        List<CartItem> GetAll(Cart cart);
 
-        List<CartLine> List(Cart cart);
+
     }
 }

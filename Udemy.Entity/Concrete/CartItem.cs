@@ -6,10 +6,11 @@ using System.Threading.Tasks;
 
 namespace Udemy.Entity.Concrete
 {
-    public class CartLine
+    public class CartItem
     {
-        public int CartLineId { get; set; }
+        public int CartItemId { get; set; }
         public Course Course { get; set; }
         public int Quantity { get; set; }
+
     }
 }

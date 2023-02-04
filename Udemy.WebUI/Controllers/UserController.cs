@@ -17,7 +17,9 @@ namespace Udemy.WebUI.Controllers
         private ICategoryService _categoryService;
         private ICourseService _courseService;
         private ITeacherService _teacherService;
+        private ICartService _cartService;
         private string CurrentUserId;
+        public Cart Cart { get; set; }
 
         public UserController(ICategoryService service, ICourseService courseService, UserManager<User> userManager, SignInManager<User> signInManager, ITeacherService teacherService, IHttpContextAccessor httpContextAccessor)
         {
@@ -26,6 +28,7 @@ namespace Udemy.WebUI.Controllers
             _userManager = userManager;
             _signInManager = signInManager;
             _teacherService = teacherService;
+            Cart = new Cart();
 
             CurrentUserId = httpContextAccessor.HttpContext.User.FindFirst(ClaimTypes.NameIdentifier).Value;
         }
@@ -78,14 +81,25 @@ namespace Udemy.WebUI.Controllers
 
 
         }
+        public async Task<IActionResult> AddToCart(Course course)
+        {
+  
+           
+            _cartService.AddToCart(Cart,course);
+            return RedirectToAction("Index", "Cart");
+         
+            
+            
+            
+        }
 
         public IActionResult  ShowCart(CartListViewModel model)
         {
 
-            var model=new CartListViewModel
-            {
-                 Courses=
-            }
+            //var model=new CartListViewModel
+            //{
+            //     Courses=
+            //}
             return RedirectToAction("Index", "Cart");
         }
     }
