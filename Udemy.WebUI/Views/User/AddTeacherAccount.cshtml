@@ -1,0 +1,56 @@
+﻿@model Udemy.WebUI.Models.UserViewModel;
+
+
+@{
+    Layout="~/Views/Shared/_LayoutForModel.cshtml";
+}
+
+
+
+
+@*<div class="container">
+    <div class="mx-auto" style="margin-top:1000px;">
+        <form asp-controller="User" asp-action="AddTeacherAccount" method="post">
+            <input type="hidden" asp-for="@Model.TeacherFullName" value="@User.Identity.Name"/>
+            <input type="hidden" asp-for="@Model.TeacherAccount.MyId" value="@Model.User.Id"/>
+            <input asp-for="@Model.TeacherAccount.MyTeacherAccount.FieldOfWork" type="text" id="typeEmailX" placeholder="Username" class="form-control form-control-lg" />
+
+        </form>
+    </div>
+</div>*@
+
+
+<form asp-controller="User" asp-action="AddTeacherAccount" method="post">
+
+    <div class="container py-5 h-100">
+        <div class="row d-flex justify-content-center align-items-center h-100">
+            <div class="col-12 col-md-8 col-lg-6 col-xl-5">
+                <div class="card bg-white text-dark">
+                    <div class="card-body p-5 text-center">
+
+                        <div class="mb-md-5 mt-md-4 pb-5">
+                            <div asp-validation-summary="All" class="text-danger"></div>
+
+                            <input type="hidden" asp-for="@Model.TeacherFullName" value="@User.Identity.Name" />
+                            <input type="hidden" asp-for="@Model.TeacherAccount.MyId" value="@Model.User.Id" />
+                            <input type="hidden" asp-for="@Model.haveMyTeacherAccountOrNot" value="true"/>
+                            <div class="form-outline form-dark mb-4">
+                                @*<label asp-validation-for="UserName" class="form-label" for="typeEmailX">Username</label>*@
+                                <input asp-for="@Model.TeacherAccount.MyTeacherAccount.FieldOfWork" type="text" id="typeFieldOfWorkX" placeholder="Field Of Work" class="form-control form-control-lg" />
+                            </div>
+
+                            <div class="form-outline form-dark mb-4">
+                                @*<label asp-validation-for="Password" class="form-label" for="typePasswordX">Password</label>*@
+                                <input asp-for="@Model.TeacherAccount.MyTeacherAccount.AboutMe" type="text" id="typeAboutMeX" placeholder="About me" class="form-control form-control-lg" />
+                            </div>
+
+                            <button class="btn btn-outline-dark btn-lg px-5 mb-4" type="submit">Okay!</button>
+
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</form>

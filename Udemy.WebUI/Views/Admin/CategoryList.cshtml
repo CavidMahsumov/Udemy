@@ -1,0 +1,111 @@
+﻿@model Udemy.WebUI.Models.AdminViewModel;
+
+
+@{
+    Layout = "~/Views/Shared/_LayoutForAdmin.cshtml";
+}
+
+<link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.css" />
+<link rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css" integrity="sha512-MV7K8+y+gLIBoVD59lQIYicR65iaqukzvf/nwasF0nqhPay5w/9lJmVM2hMDcnK1OnMGCdVK+iQrJ7lzPJQd1w==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"></script>
+
+
+
+
+
+<div class="mx-auto" style="width:100vh;">
+    @if (TempData["Message"] != null)
+    {
+        <div class="alert animate__animated animate__backInLeft mt-3" style="background-color:#7286D3;color:white;" role="alert">
+
+            @TempData["Message"]
+            <button type="button" class="btn-close" style="margin-left:640px;" data-bs-dismiss="alert" aria-label="Close"></button>
+        </div>
+    }
+
+
+
+
+    <div id="CategoryDiv" class="w-100 mx-auto text-center mt-5" style="border-radius:15px;background-color:darkblue;">
+        <h1 class="pt-3 pb-2 text-white">Categories</h1>
+        <div class="bg-white w-100">
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th scope="col">ID</th>
+                        <th scope="col">Category Name</th>
+                        <th scope="col">Some Process</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var category in Model.Categories)
+                    {
+                        <tr class="text-start">
+                            <th scope="row">@category.CategoryId</th>
+                            <td>@category.CategoryName</td>
+                            <td>
+                                <div>
+                                    <form asp-controller="Admin" asp-action="SubCategoryList" method="post" class="d-inline">
+                                        <button type="submit" class="btn ms-3 text-white" style="background-color:darkblue;">Subcategories</button>
+                                        <input type="hidden" name="categoryId" value="@category.CategoryId">
+                                    </form>
+                                    <a class="btn ms-2 text-white" style="background-color:darkblue;">Courses</a>
+                                    <form asp-controller="Admin" asp-action="RemoveCategory" method="post" style="display:inline;">
+
+                                        <button type="submit" class="btn ms-2 text-white" style="background-color:red;">Remove</button>
+                                        <input type="hidden" name="categoryId" value="@category.CategoryId">
+                                    </form>
+                                </div>
+                            </td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+
+    </div>
+
+    <a id="AddCategoryBtn" class="btn w-100 mt-1 text-white" style="background-color:darkblue;">
+        Add New Category
+    </a>
+
+    <form asp-controller="Admin" asp-action="AddCategory" method="post">
+        <div id="AddCategoryDiv" class="text-center mx-auto mt-5" style="border:1px solid #E8E2E2;border-radius:7px;">
+            <input asp-for="@Model.addCategoryModel.CategoryName" type="text" class="p-2 mt-2 d-block mx-auto" style="border:1px solid #362FD9;border-radius:5px;font-size:1.3em;font-weight:500;color:black;" placeholder="Category name" />
+            <button id="SubmitBtn" type="submit" class="btn btn-outline-dark p-2 mt-2 mb-2 d-block mx-auto" style="border:1px solid black;border-radius:4px;font-size:1.2em;font-weight:500;">Add Category</button>
+        </div>
+
+
+
+    </form>
+</div>
+
+
+
+<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+<script src="~/lib/jquery-validation/dist/jquery.validate.js"></script>
+<script src="~/lib/jquery-validation-unobtrusive/jquery.validate.unobtrusive.js"></script>
+
+<script>
+
+
+    $("#AddCategoryDiv").hide();
+
+
+    $("#AddCategoryBtn").click(function () {
+        $("#AddCategoryBtn").hide();
+        $("#AddCategoryDiv").show();
+    });
+
+    $("#SubmitBtn").click(function () {
+        $("#AddCategoryBtn").show();
+        $("#AddCategoryDiv").hide();
+    });
+
+
+</script>

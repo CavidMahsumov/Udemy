@@ -1,0 +1,130 @@
+﻿@model Udemy.WebUI.Models.AdminViewModel;
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>@ViewBag.Title</title>
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.css" />
+    <link rel="stylesheet"
+          href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css" integrity="sha512-MV7K8+y+gLIBoVD59lQIYicR65iaqukzvf/nwasF0nqhPay5w/9lJmVM2hMDcnK1OnMGCdVK+iQrJ7lzPJQd1w==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"></script>
+</head>
+
+<style>
+    body {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+    }
+
+    .CustomSidebar {
+        width: 30vh;
+        height: 90vh;
+        background-color: #205D67;
+        border: 1px solid white;
+        border-radius: 15px;
+        display: flex;
+        flex-direction: column;
+    }
+
+    .Header {
+        width: 28vh;
+        height: 15vh;
+    }
+
+
+    .name {
+        color: whitesmoke;
+        font-size: 1.3em;
+        font-weight: 500;
+    }
+
+    .CustomSidebarBody {
+        width: 28vh;
+        height: 70vh;
+        display: flex;
+        flex-direction: column;
+    }
+
+
+    .SideLinks {
+        background-color: transparent;
+        color: whitesmoke;
+        font-size: 1.2em;
+        font-weight: 500;
+        text-decoration: none;
+        border-radius: 6px;
+        transition-duration: 0.2s;
+    }
+
+        .SideLinks:hover {
+            background-color: whitesmoke;
+            color: black;
+            cursor: pointer;
+            transition-duration: 0.2s;
+        }
+
+    .slend {
+        background-color: transparent;
+        color: whitesmoke;
+        font-size: 1.2em;
+        font-weight: 500;
+        text-decoration: none;
+        border-radius: 6px;
+        transition-duration: 0.2s;
+    }
+
+        .slend:hover {
+            background-color: darkorange;
+            color: black;
+            cursor: pointer;
+            transition-duration: 0.2s;
+        }
+
+</style>
+
+<body>
+
+    <div class="row">
+        <div class="col-2">
+            <div class="CustomSidebar mt-3 mx-auto">
+                <div class="Header text-center mt-2 mx-auto">
+                    <img style="border-radius:50%" src="~/Images/47774.png" width="35" height="35" class="mx-auto mt-2" />
+                    <h1 class="name text-center mt-2">Murad Sadikhov</h1>
+                </div>
+                <form asp-controller="Admin">
+
+                    <div class="CustomSidebarBody text-center mt-1 mx-auto">
+                        <a class="SideLinks p-1 mt-1">Home</a>
+                        <button asp-action="ShowAllAdmins" class="SideLinks p-1 mt-2">Admin Manage</button>
+                        <button asp-action="Users" class="SideLinks p-1 mt-2">User Manage</button>
+                        <a class="SideLinks p-1 mt-2">Courses</a>
+                        <a class="SideLinks p-1 mt-2">Categories</a>
+                        <hr class="mt-2 text-white" />
+                        <a class="SideLinks p-1 mt-2">Add New Admin</a>
+                        <a class="SideLinks p-1 mt-2">Add New Role</a>
+                        <hr class="mt-2 text-white" />
+                        <a class="slend p-1 mt-2">My Profile</a>
+                        <a class="slend p-1 mt-2">Log Out</a>
+
+                    </div>
+                </form>
+            </div>
+        </div>
+        <div class="col text-center">
+            @RenderBody()
+        </div>
+    </div>
+
+
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+    <script src="~/lib/jquery-validation/dist/jquery.validate.js"></script>
+    <script src="~/lib/jquery-validation-unobtrusive/jquery.validate.unobtrusive.js"></script>
+</body>
+
+</html>

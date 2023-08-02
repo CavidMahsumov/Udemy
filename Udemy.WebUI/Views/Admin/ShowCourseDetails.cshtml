@@ -1,0 +1,390 @@
+﻿@model Udemy.WebUI.Models.AdminViewModel;
+
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>@ViewBag.Title</title>
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.css" />
+    <link rel="stylesheet"
+          href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css" integrity="sha512-MV7K8+y+gLIBoVD59lQIYicR65iaqukzvf/nwasF0nqhPay5w/9lJmVM2hMDcnK1OnMGCdVK+iQrJ7lzPJQd1w==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"></script>
+
+
+
+
+
+<style>
+    a {
+        cursor: pointer;
+    }
+
+    li {
+        border: 0;
+    }
+
+    /*.list-group-item {
+                                                                                            color: black;
+                                                                                            transition: 0.3s;
+                                                                                        }
+
+                                                                                            .list-group-item:hover {
+                                                                                                background-color: blueviolet;
+                                                                                                color: white;
+                                                                                                transition: background-color 0.3s;
+                                                                                            }*/
+
+    .card {
+        background-color: whitesmoke;
+        width: 350px;
+        cursor: pointer;
+        transition: 0.5s;
+    }
+
+        .card:hover {
+            background-color: darkgrey;
+            transition: 0.5s;
+        }
+
+</style>
+
+</head>
+<body>
+
+@foreach (var course in Model.Courses)
+{
+    @if (course.CourseId == 2)
+    {
+
+        <div class="d-none d-xl-block">
+
+
+            <div class="mt-auto w-100 text-center d-xl-block d-none" style="background-color:black;">
+                <div class="mx-auto pt-4 me-5">
+                    @foreach (var category in Model.Categories)
+                    {
+                        if (category.CategoryId == course.CategoryId)
+                        {
+                            foreach (var subCategory in category.SubCategories)
+                            {
+                                if (subCategory.SubCategoryId == course.SubCategoryId)
+                                {
+                                    foreach (var topic in subCategory.Topics)
+                                    {
+                                        if (topic.TopicId == course.TopicId)
+                                        {
+                                            <a style="color:darkviolet;" class="fw-bold">@category.CategoryName</a> <span class="text-white"> > </span> <a class="fw-bold" style="color:darkviolet;">@subCategory.SubCategoryName</a>  <span class="text-white"> > </span> <a class="fw-bold" style="color:darkviolet;">@topic.TopicName</a>
+
+                                        }
+                                    }
+                                }
+                            }
+
+
+
+                        }
+
+                    }
+                </div>
+                <div class="mx-auto pt-2 me-5 ms-5 w-50">
+                    <h1 class="text-white fw-bold text-start ms-5">@course.CourseTitle</h1>
+                    <h4 class="mt-1 text-white text-start ms-5 pt-3">@course.CourseContent</h4>
+                    @foreach (var teacher in Model.Teachers)
+                    {
+                        if (teacher.TeacherId == course.TeacherId)
+                        {
+                            <p class="mt-1 pt-2 text-white text-start ms-5 pb-5">Created by : <a style="color:darkviolet;" class="fw-200">@teacher.FullName</a></p>
+
+                        }
+                    }
+
+                    <a class="text-center w-25 btn text-white fw-bold fs-5 border-0 rounded-0" style="background-color:darkviolet;  margin-left:-3em; margin-top:-8em;">Add to Cart</a>
+                    <a class="text-center btn border-0 rounded-0" style="background-color:white;  margin-left:1em; margin-top:-10em;"> <i class="fa-regular fa-heart fa-lg"></i> </a>
+
+                </div>
+            </div>
+
+            <div class="d-xl-block d-none" style="margin-left:63%;margin-top:-16%;">
+
+
+                <div class="d-inline-block card mt-5 ms-3 border-0 mx-3">
+                    <img class="card-img-top p-3" height="200" src="@course.ImageUrl" />
+                    <div class="card-body pt-3">
+                        <h2 class="card-title fw-200">
+                            @course.CourseTitle
+                        </h2>
+                        @foreach (var teacher in Model.Teachers)
+                        {
+                            if (teacher.TeacherId == course.TeacherId)
+                            {
+                                <p class="card-text fs-2">
+
+                                    @teacher.FullName
+                                </p>
+                            }
+                        }
+                        <p class="card-text fs-3 fw-bold">
+                            @course.Price<span>$</span>
+                        </p>
+
+                    </div>
+                </div>
+            </div>
+
+            <div class="container h-25 mt-0 bg-white border-1 border-dark rounded-0">
+                <h1 class="fw-bold pt-3 ps-1">What you'll learn</h1>
+                <div class="w-75 h-75 mt-2">
+                    @foreach (var oo in Model.ObjectiveAndOutcomes)
+                    {
+                        @foreach(var co in course.ObjectivesAndOutcomes)
+                        {
+                            if (oo.ObjectiveAndOutcomesId == co.ObjectiveAndOutcomesId)
+                            {
+                                <ul class="list-group list-group-horizontal">
+                                    <li class="list-group-item">@oo.Content</li>
+                                </ul>
+                            }
+                        }
+
+                        
+                    }
+                </div>
+            </div>
+
+
+            <div class="container mt-5 bg-white">
+                <h1 class="fw-bold pt-3 ps-1">Requirements</h1>
+                <ul>
+                    <li>
+                        @foreach (var r in Model.Requirements)
+                        {
+                            @foreach(var cr in course.Requirements)
+                            {
+
+                                if (r.RequirementId == cr.RequirementId)
+                                {
+                                    <p class="pt-2 ps-2">
+                                        @r.Content
+                                    </p>
+                                }
+                            }
+                            
+                        }
+                    </li>
+                </ul>
+
+                <h1 class="fw-bold mt-5 ps-1">Description</h1>
+                <p class="w-50 text-black pt-2 ps-2">
+                    @course.Description
+                </p>
+            </div>
+
+            <div class="container mt-5 bg-white">
+                <h1 class="fw-bold pt-3 ps-1">Instructor</h1>
+                @foreach (var teacher in Model.Teachers)
+                {
+                    if (teacher.TeacherId == course.TeacherId)
+                    {
+                        <a class="pt-2 ps-2 fs-4" style="color:blueviolet;">@course.Teacher.FullName</a>
+                        <p class="pt-1 ps-2 fs-5" style="color:darkgray;">@course.Teacher.FieldOfWork</p>
+
+                        <img class="mt-1 ms-1 rounded-circle d-inline-block" src="~/Images/20221127_005741.jpg" width="120" height="140" />
+                        <div style="margin-left:150px;margin-top:-160px;">
+
+                            <div class="d-block ms-2 mt-5">
+                                <i class="fa-solid fa-comment d-inline-block"></i>
+                                <p class="ms-1 d-inline-block">76.000 comment</p>
+                            </div>
+                            <div class="d-block ms-2">
+                                <i class="fa-solid fa-comment d-inline-block"></i>
+                                <p class="ms-1 d-inline-block">76.000 comment</p>
+                            </div>
+                            <div class="d-block ms-2">
+                                <i class="fa-solid fa-comment d-inline-block"></i>
+                                <p class="ms-1 d-inline-block">76.000 comment</p>
+                            </div>
+                        </div>
+                        <p class="w-50 text-black pt-2 ps-2">
+                            @teacher.AboutMe
+                        </p>
+                    }
+                }
+            </div>
+        </div>
+
+
+        @*Responsive design*@
+        <div class="d-block d-xl-none">
+
+
+
+            <div class="mt-auto w-100" style="background-color:whitesmoke;text-align:center;height:50px;display:flex;align-items:center;justify-content:center;">
+                @foreach (var category in Model.Categories)
+                {
+                    if (category.CategoryId == course.CategoryId)
+                    {
+                        foreach (var subCategory in category.SubCategories)
+                        {
+                            if (subCategory.SubCategoryId == course.SubCategoryId)
+                            {
+                                foreach (var topic in subCategory.Topics)
+                                {
+                                    if (topic.TopicId == course.TopicId)
+                                    {
+                                        <a style="color:darkviolet;" class="fw-bold">@category.CategoryName</a> <span class="text-white"> > </span> <a class="fw-bold" style="color:darkviolet;">@subCategory.SubCategoryName</a>  <span class="text-white"> > </span> <a class="fw-bold" style="color:darkviolet;">@topic.TopicName</a>
+
+                                    }
+                                }
+                            }
+                        }
+
+
+
+                    }
+
+                }
+            </div>
+
+            <div class="container container-md container-sm" style="text-align:center;margin-bottom:50px;">
+                <img class="w-100 bg-black" height="30%" src="~/Images/php.png" />
+                <div style="text-align:start">
+                    <h1 class="pt-3">
+                        @course.CourseTitle
+                    </h1>
+                    <p class="pt-2">
+                        @course.CourseContent
+                    </p>
+                    @foreach (var teacher in Model.Teachers)
+                    {
+                        if (teacher.TeacherId == course.TeacherId)
+                        {
+                            <p class="fw-bold">Created by : <a style="color:darkviolet;">@teacher.FullName</a></p>
+                        }
+                    }
+                    <h1>
+                        @course.Price<span>$</span>
+                    </h1>
+                </div>
+                <div class="mt-5">
+                    <a class="text-center w-75 btn text-white fw-bold fs-5 border-0 rounded-0" style="background-color:darkviolet;">Add to Cart</a>
+                    <a class="text-center btn fs-5" style="background-color:white; border:1px solid black;border-radius:0px;"> <i class="fa-regular fa-heart fa-lg"></i> </a>
+                </div>
+
+                <div class="w-100 mt-3" style="border:1px solid black;text-align:start;">
+                    <h1 class="p-4" style="font-size:2em;font-weight:500;">What you Learn</h1>
+                    <ul style="list-style:none;">
+                        @foreach (var oo in Model.ObjectiveAndOutcomes)
+                        {
+                            foreach (var co in course.ObjectivesAndOutcomes)
+                            {
+                                if (oo.ObjectiveAndOutcomesId == co.ObjectiveAndOutcomesId)
+                                {
+                                    <li>
+                                        <i class="fa-solid fa-check fa-lg d-none d-sm-inline-block"></i>
+                                        <p class="d-inline-block ps-sm-3">
+                                            @oo.Content
+                                        </p>
+                                    </li>
+                                }
+                            }
+
+
+                        }
+
+                    </ul>
+                </div>
+                <hr class="mt-3" />
+                <div class="pt-2" style="text-align:start;">
+
+                    <h1>
+                        Requirements
+                    </h1>
+                    <ul>
+                        @foreach (var r in Model.Requirements)
+                        {
+                            @foreach (var cr in course.Requirements)
+                            {
+                                if (r.RequirementId == cr.RequirementId)
+                                {
+                                    <li class="mt-2">
+                                        @r.Content
+                                    </li>
+                                }
+                            }
+
+                        }
+                    </ul>
+                </div>
+                <hr class="mt-3" />
+                <div class="pt-2" style="text-align:start;">
+
+                    <h1>
+                        Description
+                    </h1>
+                    <p class="pt-2">
+                        @course.Description
+                    </p>
+                </div>
+
+                <hr class="mt-3" />
+                <div class="mt-3" style="text-align:start;">
+                    <h1>
+                        Instructor
+                    </h1>
+                    @foreach (var teacher in Model.Teachers)
+                    {
+                        if (teacher.TeacherId == course.TeacherId)
+                        {
+                            <a style="color:darkviolet;font-size:1.2em;">@teacher.FullName</a>
+                            <p style="color:darkgray;font-weight:700;">@teacher.FieldOfWork</p>
+
+                            <img class="mt-1 ms-1 rounded-circle d-inline-block" src="~/Images/20221127_005741.jpg" width="120" height="140" />
+                            <div style="margin-left:150px;margin-top:-160px;">
+
+                                <div class="d-block ms-2 mt-5">
+                                    <i class="fa-solid fa-comment d-inline-block"></i>
+                                    <p class="ms-1 d-inline-block">76.000 comment</p>
+                                </div>
+                                <div class="d-block ms-2">
+                                    <i class="fa-solid fa-comment d-inline-block"></i>
+                                    <p class="ms-1 d-inline-block">76.000 comment</p>
+                                </div>
+                                <div class="d-block ms-2">
+                                    <i class="fa-solid fa-comment d-inline-block"></i>
+                                    <p class="ms-1 d-inline-block">76.000 comment</p>
+                                </div>
+                            </div>
+                            <p class="w-100 text-black pt-2 ps-2">
+                                @teacher.AboutMe
+                            </p>
+                        }
+                    }
+                </div>
+
+
+
+            </div>
+            <input name="AcceptedCourseId" type="hidden" value="@course.CourseId">
+            <button type="submit" class="w-100 mt-5 btn fixed-bottom" style="background-color:darkviolet;text-align:center; font-size:1.5em;color:white; border-radius:0px;">Accept</button>
+        </div>
+
+
+    }
+}
+
+
+
+
+
+<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+<script src="~/lib/jquery-validation/dist/jquery.validate.js"></script>
+<script src="~/lib/jquery-validation-unobtrusive/jquery.validate.unobtrusive.js"></script>
+
+
+</body>
+</html>

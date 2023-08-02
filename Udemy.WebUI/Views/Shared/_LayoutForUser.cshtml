@@ -1,0 +1,321 @@
+﻿@model Udemy.WebUI.Models.UserViewModel;
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>@ViewBag.Title</title>
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.css" />
+    <link rel="stylesheet"
+          href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css" integrity="sha512-MV7K8+y+gLIBoVD59lQIYicR65iaqukzvf/nwasF0nqhPay5w/9lJmVM2hMDcnK1OnMGCdVK+iQrJ7lzPJQd1w==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"></script>
+    <style>
+        a {
+            font-size: 14px;
+            font-weight: 500
+        }
+
+        /*.superNav {
+                                                                                                                                                    font-size: 13px;
+                                                                                                                                                }*/
+
+        .form-control {
+            outline: none !important;
+            box-shadow: none !important;
+        }
+
+        .dropdown:hover .dropdown-menu {
+            display: block;
+        }
+
+        .dropdown-menu.show {
+        }
+
+        .dropdown-item {
+            width: 100% !important;
+        }
+
+
+        .Login {
+            color: black;
+            background-color: transparent;
+            border: 1px solid darkviolet;
+            border-radius: 5px;
+            transition: 0.2s;
+        }
+
+
+            .Login:hover {
+                color: white;
+                background-color: darkviolet;
+                transition: 0.2s;
+            }
+
+
+        .SearchBtn {
+            background-color: darkviolet;
+            border: 1px solid darkviolet;
+            color: white;
+            border-radius: 8px;
+            border-bottom-left-radius: 0px;
+            border-top-left-radius: 0px;
+            transition: 0.1s;
+        }
+
+            .SearchBtn:hover {
+                color: black;
+                background-color: transparent;
+                transition: 0.1s;
+            }
+
+        footer {
+            position: fixed;
+            left: 0;
+            bottom: 0;
+            width: 100%;
+        }
+
+
+        .drpmenu {
+            width: 250px;
+            margin-left: -205px;
+            margin-top: 5px;
+            border-radius: 10px;
+            border-color: darkviolet;
+        }
+
+        .drpitems1 > a {
+            display: inline-block;
+            color: black;
+            margin-top: 5px;
+        }
+
+            .drpitems1 > a:hover {
+                background-color: white;
+                color: darkviolet;
+            }
+
+        .drpheader {
+            cursor: pointer;
+        }
+
+            .drpheader > h1 {
+                color: black;
+                font-weight: bold;
+                font-size: 1.6em;
+                margin-left: 40px;
+                margin-top: 7px;
+                display: inline-block;
+            }
+
+            .drpheader > img {
+                display: inline-block;
+                margin-left: 5px;
+            }
+
+            .drpheader:hover {
+                background-color: white;
+                color: darkviolet;
+            }
+
+            .drpheader > h1:hover {
+                color: darkviolet;
+            }
+
+           
+    </style>
+</head>
+<body>
+
+
+    <div>
+        <nav class="navbar navbar-expand-xl navbar-light bg-light">
+            <div class="container-fluid">
+                <button class="navbar-toggler ms-3" type="button" data-bs-toggle="offcanvas" data-bs-target="#navbarNavOffCanvas" aria-controls="navbarNavOffCanvas" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <a class="navbar-brand mx-auto d-sm-block ms-xl-4" href="/Home/Index"><img src="~/Images/Udemy_logo.svg.png" height="38" alt="CoolBrand"> </a>
+                <div class="me-3 d-block d-xl-none">
+                    <a class="d-xl-none" href="#searchBox" data-bs-toggle="collapse"><i class="fa-solid fa-magnifying-glass fa-lg"></i></a>
+                </div>
+
+                <div class="collapse navbar-collapse d-none d-xl-block" id="navbarNavDropdown">
+                    <ul class="navbar-nav ms-auto ">
+                        <li class="nav-item dropdown me-5">
+                            <a class="nav-link dropdown-toggle" id="drop" role="button" data-bs-toggle="dropdown">Categories</a>
+                            <div class="dropdown-menu me-3 mt-1" style="margin-left:-18px;border:1px solid darkviolet;" aria-labelledby="drop">
+                                @foreach (var item in Model.Categories)
+                                {
+                                    <a class="dropdown-item" style="color:darkviolet;" href="#">@item.CategoryName</a>
+                                }
+
+                            </div>
+
+
+                        </li>
+
+                        <li class="nav-item ms-1">
+                            <div class="input-group">
+                                <span class="input-group-text text-white" style="border:1px solid darkviolet;border-radius:8px;border-bottom-right-radius:0px;border-top-right-radius:0px; background-color:darkviolet;"><i class="fa-solid fa-magnifying-glass"></i></span>
+                                <input type="text" class="form-control" style="color:#7a7a7a;border:1px solid darkviolet;border-radius:8px;border-bottom-right-radius:0px;border-top-right-radius:0px;border-bottom-left-radius:0px;border-top-left-radius:0px;width:60vh;">
+                                <button class="SearchBtn btn">Search</button>
+                            </div>
+                        </li>
+
+                        <li class="nav-item">
+                            <a class="nav-link mx-2" href="#">Udemy Business</a>
+                        </li>
+                        <li class="nav-item">
+                            <a asp-controller="User" asp-action="AddTeacherAccount" class="nav-link mx-2">Teach on Udemy</a>
+                        </li>
+                    </ul>
+                    <ul class="navbar-nav ms-auto ">
+                        <li class="nav-item">
+                            <a class="nav-link" href="#"><i class="fa-solid fa-heart fa-lg" style="margin-top:12px;"></i></a>
+                        </li>
+
+                        <li class="nav-item">
+                            <a class="nav-link" href="#"><i class="fa-solid fa-bell fa-lg" style="margin-top:12px;"></i></a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link mx-2" href="#"><i class="fa-solid fa-cart-shopping fa-lg" style="margin-top:12px;"></i></a>
+                        </li>
+                        <li class="nav-item dropdown d-none d-lg-block">
+
+                            <a href="#" class="nav-link dropdown border-0 bg-transparent" data-bs-toggle="dropdown"><img height="20" width="20" src="~/Images/47774.png" /></a>
+                            <div class="dropdown-menu drpmenu">
+                                <div class="drpheader dropdown-item">
+                                    <img src="~/Images/47774.png" width="30px" height="30px">
+                                    <h1>@User.Identity.Name</h1>
+                                </div>
+                                <hr>
+                                <div class="drpitems1" style="background-color:white;">
+                                    <a class="dropdown-item" href="#">My Learning</a>
+                                    <a class="dropdown-item" href="#">My Card</a>
+                                    <a class="dropdown-item" href="#">Wishlist</a>
+                                    <a class="dropdown-item" href="">Instructor</a>
+                                    <hr>
+                                    <a class="dropdown-item" href="#">Notification</a>
+                                    <a class="dropdown-item" href="#">Messages</a>
+                                    <hr>
+                                    <a class="dropdown-item" href="#">Account Settings</a>
+                                    <a class="dropdown-item" href="#">Edit Profile</a>
+                                    <hr>
+                                    <a class="dropdown-item" href="#">Help</a>
+                                    <a class="dropdown-item" asp-controller="Account" asp-action="LogOut">Log Out</a>
+                                </div>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+
+
+
+                <div class="offcanvas offcanvas-start ms-auto d-xl-none w-75" tabindex="-1" id="navbarNavOffCanvas" aria-labelledby="offcanvasNavbarLabel">
+                    <div class="offcanvas-header">
+                        <ul class="navbar-nav ms-1 flex-grow-1 pe-3">
+                            <li class="nav-item ms-2">
+                                <a class="nav-link mx-2" style="color:darkviolet;font-size:1.3em;" asp-controller="Account" asp-action="Login">Sign In</a>
+                            </li>
+                            <li class="nav-item ms-2">
+                                <a class="nav-link mx-2" style="color:darkviolet;font-size:1.3em;" asp-controller="Account" asp-action="Register">Sign Up</a>
+                            </li>
+                        </ul>
+                        <button type="button" style="color:darkviolet;" class="btn-close btn-close-dark" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+                    </div>
+                    <hr class="d-md-none" />
+                    <div class="offcanvas-body">
+                        <ul class="navbar-nav ms-1 flex-grow-1 pe-3">
+
+                            <li class="nav-item">
+                                <a class="nav-link mx-2" style="font-weight:bold;font-size:1.5em;color:darkviolet;">Course Categories</a>
+                            </li>
+                            @foreach (var category in Model.Categories)
+                            {
+                                <li class="nav-item">
+                                    <a class="nav-link mx-2" style="font-weight:bold;font-size:1.2em;letter-spacing:1px;">@category.CategoryName</a>
+                                </li>
+                            }
+
+                            <hr class="d-md-none" />
+                            <li class="nav-item">
+                                <a class="nav-link mx-2" style="font-weight:bold;font-size:1.5em;color:darkviolet;">More From Udemy</a>
+                            </li>
+
+                            <li class="nav-item">
+                                <a class="nav-link mx-2" style="font-size:1.2em;" asp-controller="Account" asp-action="Login">Your Card</a>
+                            </li>
+
+                            <li class="nav-item">
+                                <a class="nav-link mx-2" style="font-size:1.2em;" asp-controller="Account" asp-action="Login">Udemy Business</a>
+                            </li>
+
+                            <li class="nav-item">
+                                <a class="nav-link mx-2" style="font-size:1.2em;" asp-controller="Account" asp-action="Login">Tech on Udemy</a>
+                            </li>
+
+                            <li class="nav-item">
+                                <a class="nav-link mx-2" style="font-size:1.2em;font-weight:bold;" asp-controller="Account" asp-action="Login">Help</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+
+            </div>
+
+        </nav>
+        <div id="searchBox" class="input-group collapse">
+            <span class="input-group-text text-dark" style="background-color:darkviolet;border:1px solid darkviolet;"><i class="fa-solid fa-magnifying-glass"></i></span>
+            <input type="text" class="form-control" style="color:#7a7a7a;border:1px solid darkviolet;">
+            <button class="btn text-dark" style="background-color:darkviolet;">Search</button>
+        </div>
+        @RenderBody()
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+    <script src="~/lib/jquery-validation/dist/jquery.validate.js"></script>
+    <script src="~/lib/jquery-validation-unobtrusive/jquery.validate.unobtrusive.js"></script>
+
+
+</body>
+</html>
+
+
+
+
+
+
+@*<li class="nav-item dropdown me-5 d-none d-xl-block">
+
+    <a href="#" class="nav-link dropdown border-0 bg-transparent" data-bs-toggle="dropdown"><img height="20" width="20" src="~/Images/47774.png" /></a>
+    <div class="dropdown-menu drpmenu">
+
+        <div class="drpheader dropdown-item">
+            <img src="~/Images/47774.png" width="30px" height="30px">
+            <h1>@User.Identity.Name</h1>
+        </div>
+        <hr>
+        <div class="drpitems1" style="background-color:white;">
+            <a class="dropdown-item" href="#">My Learning</a>
+            <a class="dropdown-item" href="#">My Card</a>
+            <a class="dropdown-item" href="#">Wishlist</a>
+            <a class="dropdown-item" href="">Instructor</a>
+            <hr>
+            <a class="dropdown-item" href="#">Notification</a>
+            <a class="dropdown-item" href="#">Messages</a>
+            <hr>
+            <a class="dropdown-item" href="#">Account Settings</a>
+            <a class="dropdown-item" href="#">Edit Profile</a>
+            <hr>
+            <a class="dropdown-item" href="#">Help</a>
+            <a class="dropdown-item" asp-controller="Account" asp-action="LogOut">Log Out</a>
+
+
+        </div>
+
+    </div>
+</li>*@

@@ -1,0 +1,294 @@
+﻿<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>@ViewBag.Title</title>
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.css" />
+    <link rel="stylesheet"
+          href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css" integrity="sha512-MV7K8+y+gLIBoVD59lQIYicR65iaqukzvf/nwasF0nqhPay5w/9lJmVM2hMDcnK1OnMGCdVK+iQrJ7lzPJQd1w==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"></script>
+    <style>
+        .listA {
+            background-color: transparent;
+            color: white;
+            font-size: 1.5em;
+            margin-left: 50px;
+            transition: 0.5s;
+            cursor: pointer;
+            text-decoration: none;
+        }
+
+        /*            .listA:hover {
+                                                                        color: darkviolet;
+                                                                        transition: 0.5s;
+                                                                    }*/
+
+        ul {
+            background-color: darkviolet;
+            margin-left: -10px;
+            text-align: center;
+        }
+
+        .item {
+            background-color: darkviolet;
+            cursor: pointer;
+            margin-left: -15px;
+            text-align: center;
+            border: 0px;
+            transition: 0.5s;
+        }
+
+        .branditem:hover {
+        }
+
+        /*            .item:hover {
+                                                                        background-color: white;
+                                                                        transition: 0.5s;
+                                                                    }*/
+
+        .item:hover .listA {
+            color: black;
+            transition: 0.5;
+        }
+
+        img {
+            padding-left: -10px;
+        }
+
+        /*.dropdown-menu {
+                                            margin-right: 170px;
+                                            margin-top: 5px;
+                                        }*/
+
+        /*.form-control {
+                                            outline: none !important;
+                                            box-shadow: none !important;
+                                        }*/
+
+        .dropdown:hover .drpmenu {
+            display: block;
+        }
+
+
+        .dropdown-item {
+            width: 100% !important;
+        }
+
+        .drpmenu {
+            width: 250px;
+            margin-left: -210px;
+            margin-top: 25px;
+            border-radius: 10px;
+            border-color: darkviolet;
+        }
+
+        .drpitems1 > a {
+            display: inline-block;
+            color: black;
+            margin-top: 5px;
+        }
+
+
+
+            .drpitems1 > a:hover {
+                background-color: white;
+                color: darkviolet;
+            }
+
+        .drpheader {
+            cursor: pointer;
+        }
+
+            .drpheader > h1 {
+                color: black;
+                font-weight: bold;
+                font-size: 1.6em;
+                margin-left: 40px;
+                margin-top: 7px;
+                display: inline-block;
+            }
+
+            .drpheader > img {
+                display: inline-block;
+                margin-left: 5px;
+            }
+
+            .drpheader:hover {
+                background-color: white;
+                color: darkviolet;
+            }
+
+            .drpheader > h1:hover {
+                color: darkviolet;
+            }
+    </style>
+</head>
+<body>
+    <div>
+
+        <div class="w-100 mx-auto d-xl-block d-none" style="background-color:darkviolet;height:20px;">
+            <ul>
+                <ul class="list-group list-group-horizontal" style="border:0px;">
+
+                    <li class="list-group-item item branditem" @*style="background-color:darkviolet;"*@> <a class="brand mx-auto d-sm-block ms-lg-4" href="/User/Index"><img src="~/Images/Udemy_logo.svg.png" height="38" alt="CoolBrand"> </a>  </li>
+                    <li class="list-group-item item" @*style="background-color:darkviolet;"*@> <a class="listA h2 me-2" asp-controller="Instructor" asp-action="MyCourses">Courses</a>  </li>
+                    <li class="list-group-item item" @*style="background-color:darkviolet;"*@> <a class="listA h2" asp-controller="Instructor" asp-action="Communication">Communication</a>  </li>
+                    <li class="list-group-item item" @*style="background-color:darkviolet;"*@> <a class="listA h2" asp-controller="Instructor" asp-action="Performance">Performance</a>  </li>
+                    <li class="list-group-item item" @*style="background-color:darkviolet;"*@> <a class="listA h2" asp-controller="Instructor" asp-action="Tools">Tools</a>  </li>
+                    <li class="list-group-item item" @*style="background-color:darkviolet;"*@> <a class="listA h2" asp-controller="Instructor" asp-action="Resources">Resources</a>  </li>
+                    <li class="list-group-item item ms-5" style="background-color:darkviolet;">
+                        <div class="input-group">
+                            <div id="search-autocomplete" class="form-outline">
+                                <input type="search" id="form1" class="form-control" placeholder="Search Your courses" style="width:420px;border-radius:0px;" />
+                            </div>
+                            <button type="button" class="btn btn-outline-light" style="background-color:darkviolet; border-left:0px; border-radius:0px;">
+                                <i class="fas fa-search" style="background-color:darkviolet;"></i>
+                            </button>
+                        </div>
+                    </li>
+                    <li class="list-group-item item ms-2" style="background-color:darkviolet;">
+                        <a class="bg-transparent pt-1" style="text-decoration:none;font-size:1.2em;color:white;" asp-controller="User" asp-action="Index">Student Profile</a>
+                    </li>
+                    <li class="list-group-item dropdown item ms-1" style="background-color:darkviolet;">
+
+                        <a href="#" class="dropdown border-0 bg-transparent" data-bs-toggle="dropdown"><img height="20" width="20" src="~/Images/47774.png" /></a>
+                        <div class="dropdown-menu drpmenu">
+
+                            <div class="drpheader dropdown-item">
+                                <img src="~/Images/47774.png" width="30px" height="30px">
+                                <h1>@User.Identity.Name</h1>
+                            </div>
+                            <hr>
+                            <div class="drpitems1" style="background-color:white;">
+                                <a class="dropdown-item" href="/User/Index">Student</a>
+                                <hr>
+                                <a class="dropdown-item" href="#">Notification</a>
+                                <hr>
+                                <a class="dropdown-item" href="#">Account Settings</a>
+                                <a class="dropdown-item" href="#">Payout & Tax Settings</a>
+                                <hr>
+                                <a class="dropdown-item" href="#">Public Profile</a>
+                                <a class="dropdown-item" href="#">Edit Profile</a>
+                                <hr />
+                                <a class="dropdown-item" href="#">Help</a>
+                                <a class="dropdown-item" asp-controller="Account" asp-action="LogOut">Log Out</a>
+
+
+                            </div>
+
+                        </div>
+                    </li>
+
+                </ul>
+
+            </ul>
+
+            <div class="col-md-10 w-100">
+                @if (TempData["message"] != null)
+                {
+                    <div class="alert alert-info animate__animated animate__backInLeft" role="alert">@TempData["message"]</div>
+                }
+                @RenderBody()
+            </div>
+
+            @RenderBody()
+            <div class="d-flex flex-column">
+                <footer id="sticky-footer" class="flex-shrink-0 py-4 bg-dark text-white-50">
+                    <div class="container text-center">
+                        <small>Copyright &copy; Udemy</small>
+                    </div>
+                </footer>
+            </div>
+        </div>
+
+        <div class="navbar navbar-expand-xl navbar-light sticky-top d-block d-xl-none bg-dark">
+            <button class="navbar-toggler ms-3 bg-light" type="button" data-bs-toggle="offcanvas" data-bs-target="#navbarNavOffCanvas" aria-controls="navbarNavOffCanvas" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+
+
+            <div class="offcanvas offcanvas-start ms-auto w-75" tabindex="-1" id="navbarNavOffCanvas" aria-labelledby="offcanvasNavbarLabel">
+                <div class="offcanvas-header" style="background-color:whitesmoke;">
+                    <li class="nav-item dropdown ms-2 d-block d-xl-none">
+
+                        <a href="#" class="nav-link border-0 bg-transparent" data-bs-toggle="dropdown"><img height="20" width="20" src="~/Images/47774.png" /></a>
+
+                    </li>
+                    <li class="nav-item d-block d-xl-none">
+                        <a class="nav-link mx-2 fs-3 fw-bold" asp-controller="Account" asp-action="Manage">@User.Identity.Name</a>
+                    </li>
+
+
+                </div>
+                <a asp-controller="User" asp-action="Index" class="mt-3 ps-3" style="color:darkviolet;font-size:1.1em;text-decoration:none;cursor:pointer;">Switch to student view</a>
+                <hr class="d-xl-none" />
+
+                <div class="offcanvas-body">
+                    <ul class="d-xl-none d-block" style="list-style:none;background-color:white;color:black; text-align:start; margin-left:-30px;">
+                        <li style="margin-top:6px;">
+                            <a class="ms-auto" style="font-size:1.2em;text-decoration:none;color:black;" href="#">My Courses</a>
+                        </li>
+                        <li style="margin-top:6px;">
+                            <a class="ms-auto" style="font-size:1.2em;text-decoration:none;color:black;" href="#">Communication</a>
+                        </li>
+                        <li style="margin-top:6px;">
+                            <a class="ms-auto" style="font-size:1.2em;text-decoration:none;color:black;" href="#">Performance</a>
+                        </li>
+                        <li style="margin-top:6px;">
+                            <a class="ms-auto" style="font-size:1.2em;text-decoration:none;color:black;" href="#">Tools</a>
+                        </li>
+                        <li style="margin-top:6px;">
+                            <a class="ms-auto" style="font-size:1.2em;text-decoration:none;color:black;" href="#">Resources</a>
+                        </li>
+                        <hr class="d-xl-none w-100" />
+                        <li style="margin-top:6px;">
+                            <a class="ms-auto" style="font-size:1.2em;text-decoration:none;color:black;" href="#">Notifications</a>
+                        </li>
+                        <li style="margin-top:6px;">
+                            <a class="ms-auto" style="font-size:1.2em;text-decoration:none;color:black;" href="#">Account Settings</a>
+                        </li>
+                        <li style="margin-top:6px;">
+                            <a class="ms-auto" style="font-size:1.2em;text-decoration:none;color:black;" href="#">Payout & tax settings</a>
+                        </li>
+                        <li style="margin-top:6px;">
+                            <a class="ms-auto" style="font-size:1.2em;text-decoration:none;color:black;" asp-controller="Account" asp-action="LogOut">Log Out</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+
+
+        </div>
+
+        <div class="container d-block d-xl-none" style="text-align:center;">
+
+            <div class="container p-4 container-md container-sm bg-white d-xl-none d-block" style="box-shadow:5px 10px 18px #888888;margin-top:40px;text-align:center;">
+                <h2 class="h2 ms-4 ms-md-4 p-5" style="font-size:1.1em;font-weight:500;">Jump Into Course Creation</h2>
+                <a asp-controller="Instructor" asp-action="CreateCourse" class="btn  w-75 ms-md-4" style="background-color:darkviolet;color:white;font-size:1em;font-weight:600;border-radius:2px;text-align:center;">Create Your Course</a>
+            </div>
+            <p style="font-size:1.2em;font-weight:300;margin-top:130px;">Based on your experience, we think these resources will be helpful.</p>
+            <div class="container container-md container-sm bg-white" style="box-shadow:5px 10px 18px #888888;margin-top:140px;text-align:center;">
+                <img class="p-3" src="~/Images/engaging-course.jpg" width="250px" height="250px" />
+                <div class="bg-transparent p-4">
+                    <h1 class="h1 pt-3" style="font-size:1.6em;font-weight:600">Create an Engaging Course</h1>
+                    <p style="font-size:1em;font-weight:400;" class="pt-4">Whether you've been teaching for years or are teaching for the first time, you can make an engaging course. We've compiled resources and best practices to help you get to the next level, no matter where you're starting.</p>
+                    <a class="mt-3" style="color:darkviolet;font-size:1.1em;text-decoration:none;cursor:pointer;">Get Started</a>
+                </div>
+            </div>
+            <p style="font-size:1em;font-weight:400;padding-top:130px;">Are You Ready to Begin?</p>
+            <a asp-controller="Instructor" asp-action="CreateCourse" class="btn p-5 pt-2 pb-2 mt-3 mb-4" style="background-color:darkviolet;color:white;font-size:1em;font-weight:600;border-radius:2px;">Create Your Course</a>
+        </div>
+
+
+        <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+        <script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+        <script src="~/lib/jquery-validation/dist/jquery.validate.js"></script>
+        <script src="~/lib/jquery-validation-unobtrusive/jquery.validate.unobtrusive.js"></script>
+</body>
+</html>

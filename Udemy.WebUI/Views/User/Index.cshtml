@@ -1,0 +1,630 @@
+﻿@model Udemy.WebUI.Models.UserViewModel
+
+@{
+    Layout = "~/Views/Shared/_LayoutForUser.cshtml";
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+@*<div class="container">
+    <img src="~/Images/ImageOne.jpg" class="w-100" height="30%" />
+</div>
+
+<div id="HomePage" class="h-100" style="background-color:whitesmoke;">
+    <div style="text-align:start;margin-top:50px;" class="ms-2">
+        <h1 style="font-size:3em;font-weight:600" class="ms-5 mt-5">What to learn next</h1>
+        <div class="ms-5 w-100 mt-3">
+            <div id="carouselExampleControls" class="carousel carousel-dark slide w-100" data-bs-ride="carousel">
+                <div class="carousel-inner">
+                    <div class="carousel-item active">
+                        <div class="row">
+                            <div class="col">
+                                <div class="card" style="width: 22rem;border-radius:5px;">
+                                    <img src="~/Images/design-logo.png" class="card-img-top w-75 h-75 mt-3" alt="...">
+                                    <div class="card-body mb-3 mt-3">
+                                        <h1 class="pt-2">Course Name</h1>
+                                        <p class="card-text pt-2">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                                        <h1 class="pt-2" style="color:green;font-size:1.1em;font-weight:700;">19.99$</h1>
+                                        <a asp-controller="User" asp-action="CourseDetails" class="btn w-100" style="background-color:darkviolet;border-radius:0px;">Course Details</a>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col">
+                                <div class="card" style="width: 22rem;border-radius:5px;">
+                                    <img src="~/Images/design-logo.png" class="card-img-top w-75 h-75 mt-3" alt="...">
+                                    <div class="card-body mb-3 mt-3">
+                                        <h1 class="pt-2">Course Name</h1>
+                                        <p class="card-text pt-2">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                                        <h1 class="pt-2" style="color:green;font-size:1.1em;font-weight:700;">19.99$</h1>
+                                        <a asp-controller="User" asp-action="CourseDetails" class="btn w-100" style="background-color:darkviolet;border-radius:0px;">Course Details</a>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col">
+                                <div class="card" style="width: 22rem;border-radius:5px;">
+                                    <img src="~/Images/design-logo.png" class="card-img-top w-75 h-75 mt-3" alt="...">
+                                    <div class="card-body mb-3 mt-3">
+                                        <h1 class="pt-2">Course Name</h1>
+                                        <p class="card-text pt-2">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                                        <h1 class="pt-2" style="color:green;font-size:1.1em;font-weight:700;">19.99$</h1>
+                                        <a asp-controller="User" asp-action="CourseDetails" class="btn w-100" style="background-color:darkviolet;border-radius:0px;">Course Details</a>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col">
+                                <div class="card" style="width: 22rem;border-radius:5px;">
+                                    <img src="~/Images/design-logo.png" class="card-img-top w-75 h-75 mt-3" alt="...">
+                                    <div class="card-body mb-3 mt-3">
+                                        <h1 class="pt-2">Course Name</h1>
+                                        <p class="card-text pt-2">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                                        <h1 class="pt-2" style="color:green;font-size:1.1em;font-weight:700;">19.99$</h1>
+                                        <a  asp-controller="User" asp-action="CourseDetails" class="btn w-100" style="background-color:darkviolet;border-radius:0px;">Course Details</a>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col">
+                                <div class="card" style="width: 22rem;border-radius:5px;">
+                                    <img src="~/Images/design-logo.png" class="card-img-top w-75 h-75 mt-3" alt="...">
+                                    <div class="card-body mb-3 mt-3">
+                                        <h1 class="pt-2">Course Name</h1>
+                                        <p class="card-text pt-2">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                                        <h1 class="pt-2" style="color:green;font-size:1.1em;font-weight:700;">19.99$</h1>
+                                        <a asp-controller="User" asp-action="CourseDetails"  class="btn w-100" style="background-color:darkviolet;border-radius:0px;">Course Details</a>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+
+                    </div>
+                    <div class="carousel-item">
+                        <div class="row">
+                            <div class="col">
+                                <div class="card" style="width: 22rem;border-radius:5px;">
+                                    <img src="~/Images/design-logo.png" class="card-img-top w-75 h-75 mt-3" alt="...">
+                                    <div class="card-body mb-3 mt-3">
+                                        <h1 class="pt-2">Course Name</h1>
+                                        <p class="card-text pt-2">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                                        <h1 class="pt-2" style="color:green;font-size:1.1em;font-weight:700;">19.99$</h1>
+                                        <a asp-controller="User" asp-action="CourseDetails" class="btn w-100" style="background-color:darkviolet;border-radius:0px;">Course Details</a>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col">
+                                <div class="card" style="width: 22rem;border-radius:5px;">
+                                    <img src="~/Images/design-logo.png" class="card-img-top w-75 h-75 mt-3" alt="...">
+                                    <div class="card-body mb-3 mt-3">
+                                        <h1 class="pt-2">Course Name</h1>
+                                        <p class="card-text pt-2">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                                        <h1 class="pt-2" style="color:green;font-size:1.1em;font-weight:700;">19.99$</h1>
+                                        <a asp-controller="User" asp-action="CourseDetails" class="btn w-100" style="background-color:darkviolet;border-radius:0px;">Course Details</a>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col">
+                                <div class="card" style="width: 22rem;border-radius:5px;">
+                                    <img src="~/Images/design-logo.png" class="card-img-top w-75 h-75 mt-3" alt="...">
+                                    <div class="card-body mb-3 mt-3">
+                                        <h1 class="pt-2">Course Name</h1>
+                                        <p class="card-text pt-2">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                                        <h1 class="pt-2" style="color:green;font-size:1.1em;font-weight:700;">19.99$</h1>
+                                        <a asp-controller="User" asp-action="CourseDetails" class="btn w-100" style="background-color:darkviolet;border-radius:0px;">Course Details</a>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col">
+                                <div class="card" style="width: 22rem;border-radius:5px;">
+                                    <img src="~/Images/design-logo.png" class="card-img-top w-75 h-75 mt-3" alt="...">
+                                    <div class="card-body mb-3 mt-3">
+                                        <h1 class="pt-2">Course Name</h1>
+                                        <p class="card-text pt-2">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                                        <h1 class="pt-2" style="color:green;font-size:1.1em;font-weight:700;">19.99$</h1>
+                                        <a asp-controller="User" asp-action="CourseDetails" class="btn w-100" style="background-color:darkviolet;border-radius:0px;">Course Details</a>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col">
+                                <div class="card" style="width: 22rem;border-radius:5px;">
+                                    <img src="~/Images/design-logo.png" class="card-img-top w-75 h-75 mt-3" alt="...">
+                                    <div class="card-body mb-3 mt-3">
+                                        <h1 class="pt-2">Course Name</h1>
+                                        <p class="card-text pt-2">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                                        <h1 class="pt-2" style="color:green;font-size:1.1em;font-weight:700;">19.99$</h1>
+                                        <a asp-controller="User" asp-action="CourseDetails" class="btn w-100" style="background-color:darkviolet;border-radius:0px;">Course Details</a>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                    <div class="carousel-item">
+                        <div class="row">
+                            <div class="col">
+                                <div class="card" style="width: 22rem;border-radius:5px;">
+                                    <img src="~/Images/design-logo.png" class="card-img-top w-75 h-75 mt-3" alt="...">
+                                    <div class="card-body mb-3 mt-3">
+                                        <h1 class="pt-2">Course Name</h1>
+                                        <p class="card-text pt-2">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                                        <h1 class="pt-2" style="color:green;font-size:1.1em;font-weight:700;">19.99$</h1>
+                                        <a class="btn w-100" style="background-color:darkviolet;border-radius:0px;">Course Details</a>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col">
+                                <div class="card" style="width: 22rem;border-radius:5px;">
+                                    <img src="~/Images/design-logo.png" class="card-img-top w-75 h-75 mt-3" alt="...">
+                                    <div class="card-body mb-3 mt-3">
+                                        <h1 class="pt-2">Course Name</h1>
+                                        <p class="card-text pt-2">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                                        <h1 class="pt-2" style="color:green;font-size:1.1em;font-weight:700;">19.99$</h1>
+                                        <a class="btn w-100" style="background-color:darkviolet;border-radius:0px;">Course Details</a>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col">
+                                <div class="card" style="width: 22rem;border-radius:5px;">
+                                    <img src="~/Images/design-logo.png" class="card-img-top w-75 h-75 mt-3" alt="...">
+                                    <div class="card-body mb-3 mt-3">
+                                        <h1 class="pt-2">Course Name</h1>
+                                        <p class="card-text pt-2">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                                        <h1 class="pt-2" style="color:green;font-size:1.1em;font-weight:700;">19.99$</h1>
+                                        <a class="btn w-100" style="background-color:darkviolet;border-radius:0px;">Course Details</a>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col">
+                                <div class="card" style="width: 22rem;border-radius:5px;">
+                                    <img src="~/Images/design-logo.png" class="card-img-top w-75 h-75 mt-3" alt="...">
+                                    <div class="card-body mb-3 mt-3">
+                                        <h1 class="pt-2">Course Name</h1>
+                                        <p class="card-text pt-2">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                                        <h1 class="pt-2" style="color:green;font-size:1.1em;font-weight:700;">19.99$</h1>
+                                        <a class="btn w-100" style="background-color:darkviolet;border-radius:0px;">Course Details</a>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col">
+                                <div class="card" style="width: 22rem;border-radius:5px;">
+                                    <img src="~/Images/design-logo.png" class="card-img-top w-75 h-75 mt-3" alt="...">
+                                    <div class="card-body mb-3 mt-3">
+                                        <h1 class="pt-2">Course Name</h1>
+                                        <p class="card-text pt-2">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                                        <h1 class="pt-2" style="color:green;font-size:1.1em;font-weight:700;">19.99$</h1>
+                                        <a class="btn w-100" style="background-color:darkviolet;border-radius:0px;">Course Details</a>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+                <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="prev">
+                    <i style="color:black;" class="fa-solid fa-circle-chevron-left fa-2xl me-5"></i>
+                    <span class="visually-hidden">Previous</span>
+                </button>
+                <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="next">
+                    <i style="color:black;" class="fa-solid fa-circle-chevron-right fa-2xl ms-5"></i>
+                    <span class="visually-hidden">Next</span>
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <div style="text-align:start;margin-top:50px;" class="ms-2">
+        <h1 style="font-size:3em;font-weight:600" class="ms-5 mt-5">Students are viewing</h1>
+        <div class="ms-5 w-100 mt-3">
+            <div id="carouselExampleControls1" class="carousel carousel-dark slide w-100" data-bs-ride="carousel">
+                <div class="carousel-inner">
+                    <div class="carousel-item active">
+                        <div class="row">
+                            <div class="col">
+                                <div class="card" style="width: 22rem;border-radius:5px;">
+                                    <img src="~/Images/design-logo.png" class="card-img-top w-75 h-75 mt-3" alt="...">
+                                    <div class="card-body mb-3 mt-3">
+                                        <h1 class="pt-2">Course Name</h1>
+                                        <p class="card-text pt-2">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                                        <h1 class="pt-2" style="color:green;font-size:1.1em;font-weight:700;">19.99$</h1>
+                                        <a class="btn w-100" style="background-color:darkviolet;border-radius:0px;">Course Details</a>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col">
+                                <div class="card" style="width: 22rem;border-radius:5px;">
+                                    <img src="~/Images/design-logo.png" class="card-img-top w-75 h-75 mt-3" alt="...">
+                                    <div class="card-body mb-3 mt-3">
+                                        <h1 class="pt-2">Course Name</h1>
+                                        <p class="card-text pt-2">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                                        <h1 class="pt-2" style="color:green;font-size:1.1em;font-weight:700;">19.99$</h1>
+                                        <a class="btn w-100" style="background-color:darkviolet;border-radius:0px;">Course Details</a>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col">
+                                <div class="card" style="width: 22rem;border-radius:5px;">
+                                    <img src="~/Images/design-logo.png" class="card-img-top w-75 h-75 mt-3" alt="...">
+                                    <div class="card-body mb-3 mt-3">
+                                        <h1 class="pt-2">Course Name</h1>
+                                        <p class="card-text pt-2">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                                        <h1 class="pt-2" style="color:green;font-size:1.1em;font-weight:700;">19.99$</h1>
+                                        <a class="btn w-100" style="background-color:darkviolet;border-radius:0px;">Course Details</a>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col">
+                                <div class="card" style="width: 22rem;border-radius:5px;">
+                                    <img src="~/Images/design-logo.png" class="card-img-top w-75 h-75 mt-3" alt="...">
+                                    <div class="card-body mb-3 mt-3">
+                                        <h1 class="pt-2">Course Name</h1>
+                                        <p class="card-text pt-2">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                                        <h1 class="pt-2" style="color:green;font-size:1.1em;font-weight:700;">19.99$</h1>
+                                        <a class="btn w-100" style="background-color:darkviolet;border-radius:0px;">Course Details</a>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col">
+                                <div class="card" style="width: 22rem;border-radius:5px;">
+                                    <img src="~/Images/design-logo.png" class="card-img-top w-75 h-75 mt-3" alt="...">
+                                    <div class="card-body mb-3 mt-3">
+                                        <h1 class="pt-2">Course Name</h1>
+                                        <p class="card-text pt-2">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                                        <h1 class="pt-2" style="color:green;font-size:1.1em;font-weight:700;">19.99$</h1>
+                                        <a class="btn w-100" style="background-color:darkviolet;border-radius:0px;">Course Details</a>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+
+                    </div>
+                    <div class="carousel-item">
+                        <div class="row">
+                            <div class="col">
+                                <div class="card" style="width: 22rem;border-radius:5px;">
+                                    <img src="~/Images/design-logo.png" class="card-img-top w-75 h-75 mt-3" alt="...">
+                                    <div class="card-body mb-3 mt-3">
+                                        <h1 class="pt-2">Course Name</h1>
+                                        <p class="card-text pt-2">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                                        <h1 class="pt-2" style="color:green;font-size:1.1em;font-weight:700;">19.99$</h1>
+                                        <a class="btn w-100" style="background-color:darkviolet;border-radius:0px;">Course Details</a>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col">
+                                <div class="card" style="width: 22rem;border-radius:5px;">
+                                    <img src="~/Images/design-logo.png" class="card-img-top w-75 h-75 mt-3" alt="...">
+                                    <div class="card-body mb-3 mt-3">
+                                        <h1 class="pt-2">Course Name</h1>
+                                        <p class="card-text pt-2">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                                        <h1 class="pt-2" style="color:green;font-size:1.1em;font-weight:700;">19.99$</h1>
+                                        <a class="btn w-100" style="background-color:darkviolet;border-radius:0px;">Course Details</a>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col">
+                                <div class="card" style="width: 22rem;border-radius:5px;">
+                                    <img src="~/Images/design-logo.png" class="card-img-top w-75 h-75 mt-3" alt="...">
+                                    <div class="card-body mb-3 mt-3">
+                                        <h1 class="pt-2">Course Name</h1>
+                                        <p class="card-text pt-2">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                                        <h1 class="pt-2" style="color:green;font-size:1.1em;font-weight:700;">19.99$</h1>
+                                        <a class="btn w-100" style="background-color:darkviolet;border-radius:0px;">Course Details</a>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col">
+                                <div class="card" style="width: 22rem;border-radius:5px;">
+                                    <img src="~/Images/design-logo.png" class="card-img-top w-75 h-75 mt-3" alt="...">
+                                    <div class="card-body mb-3 mt-3">
+                                        <h1 class="pt-2">Course Name</h1>
+                                        <p class="card-text pt-2">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                                        <h1 class="pt-2" style="color:green;font-size:1.1em;font-weight:700;">19.99$</h1>
+                                        <a class="btn w-100" style="background-color:darkviolet;border-radius:0px;">Course Details</a>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col">
+                                <div class="card" style="width: 22rem;border-radius:5px;">
+                                    <img src="~/Images/design-logo.png" class="card-img-top w-75 h-75 mt-3" alt="...">
+                                    <div class="card-body mb-3 mt-3">
+                                        <h1 class="pt-2">Course Name</h1>
+                                        <p class="card-text pt-2">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                                        <h1 class="pt-2" style="color:green;font-size:1.1em;font-weight:700;">19.99$</h1>
+                                        <a class="btn w-100" style="background-color:darkviolet;border-radius:0px;">Course Details</a>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                    <div class="carousel-item">
+                        <div class="row">
+                            <div class="col">
+                                <div class="card" style="width: 22rem;border-radius:5px;">
+                                    <img src="~/Images/design-logo.png" class="card-img-top w-75 h-75 mt-3" alt="...">
+                                    <div class="card-body mb-3 mt-3">
+                                        <h1 class="pt-2">Course Name</h1>
+                                        <p class="card-text pt-2">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                                        <h1 class="pt-2" style="color:green;font-size:1.1em;font-weight:700;">19.99$</h1>
+                                        <a class="btn w-100" style="background-color:darkviolet;border-radius:0px;">Course Details</a>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col">
+                                <div class="card" style="width: 22rem;border-radius:5px;">
+                                    <img src="~/Images/design-logo.png" class="card-img-top w-75 h-75 mt-3" alt="...">
+                                    <div class="card-body mb-3 mt-3">
+                                        <h1 class="pt-2">Course Name</h1>
+                                        <p class="card-text pt-2">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                                        <h1 class="pt-2" style="color:green;font-size:1.1em;font-weight:700;">19.99$</h1>
+                                        <a class="btn w-100" style="background-color:darkviolet;border-radius:0px;">Course Details</a>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col">
+                                <div class="card" style="width: 22rem;border-radius:5px;">
+                                    <img src="~/Images/design-logo.png" class="card-img-top w-75 h-75 mt-3" alt="...">
+                                    <div class="card-body mb-3 mt-3">
+                                        <h1 class="pt-2">Course Name</h1>
+                                        <p class="card-text pt-2">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                                        <h1 class="pt-2" style="color:green;font-size:1.1em;font-weight:700;">19.99$</h1>
+                                        <a class="btn w-100" style="background-color:darkviolet;border-radius:0px;">Course Details</a>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col">
+                                <div class="card" style="width: 22rem;border-radius:5px;">
+                                    <img src="~/Images/design-logo.png" class="card-img-top w-75 h-75 mt-3" alt="...">
+                                    <div class="card-body mb-3 mt-3">
+                                        <h1 class="pt-2">Course Name</h1>
+                                        <p class="card-text pt-2">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                                        <h1 class="pt-2" style="color:green;font-size:1.1em;font-weight:700;">19.99$</h1>
+                                        <a class="btn w-100" style="background-color:darkviolet;border-radius:0px;">Course Details</a>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col">
+                                <div class="card" style="width: 22rem;border-radius:5px;">
+                                    <img src="~/Images/design-logo.png" class="card-img-top w-75 h-75 mt-3" alt="...">
+                                    <div class="card-body mb-3 mt-3">
+                                        <h1 class="pt-2">Course Name</h1>
+                                        <p class="card-text pt-2">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                                        <h1 class="pt-2" style="color:green;font-size:1.1em;font-weight:700;">19.99$</h1>
+                                        <a class="btn w-100" style="background-color:darkviolet;border-radius:0px;">Course Details</a>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+                <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControls1" data-bs-slide="prev">
+                    <i style="color:black;" class="fa-solid fa-circle-chevron-left fa-2xl me-5"></i>
+                    <span class="visually-hidden">Previous</span>
+                </button>
+                <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleControls1" data-bs-slide="next">
+                    <i style="color:black;" class="fa-solid fa-circle-chevron-right fa-2xl ms-5"></i>
+                    <span class="visually-hidden">Next</span>
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <div style="text-align:start;margin-top:50px;" class="ms-2">
+        <h1 style="font-size:3em;font-weight:600" class="ms-5 mt-5">Most Popular</h1>
+        <div class="ms-5 w-100 mt-3">
+            <div id="carouselExampleControls2" class="carousel carousel-dark slide w-100" data-bs-ride="carousel">
+                <div class="carousel-inner">
+                    <div class="carousel-item active">
+                        <div class="row">
+                            <div class="col">
+                                <div class="card" style="width: 22rem;border-radius:5px;">
+                                    <img src="~/Images/design-logo.png" class="card-img-top w-75 h-75 mt-3" alt="...">
+                                    <div class="card-body mb-3 mt-3">
+                                        <h1 class="pt-2">Course Name</h1>
+                                        <p class="card-text pt-2">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                                        <h1 class="pt-2" style="color:green;font-size:1.1em;font-weight:700;">19.99$</h1>
+                                        <a class="btn w-100" style="background-color:darkviolet;border-radius:0px;">Course Details</a>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col">
+                                <div class="card" style="width: 22rem;border-radius:5px;">
+                                    <img src="~/Images/design-logo.png" class="card-img-top w-75 h-75 mt-3" alt="...">
+                                    <div class="card-body mb-3 mt-3">
+                                        <h1 class="pt-2">Course Name</h1>
+                                        <p class="card-text pt-2">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                                        <h1 class="pt-2" style="color:green;font-size:1.1em;font-weight:700;">19.99$</h1>
+                                        <a class="btn w-100" style="background-color:darkviolet;border-radius:0px;">Course Details</a>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col">
+                                <div class="card" style="width: 22rem;border-radius:5px;">
+                                    <img src="~/Images/design-logo.png" class="card-img-top w-75 h-75 mt-3" alt="...">
+                                    <div class="card-body mb-3 mt-3">
+                                        <h1 class="pt-2">Course Name</h1>
+                                        <p class="card-text pt-2">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                                        <h1 class="pt-2" style="color:green;font-size:1.1em;font-weight:700;">19.99$</h1>
+                                        <a class="btn w-100" style="background-color:darkviolet;border-radius:0px;">Course Details</a>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col">
+                                <div class="card" style="width: 22rem;border-radius:5px;">
+                                    <img src="~/Images/design-logo.png" class="card-img-top w-75 h-75 mt-3" alt="...">
+                                    <div class="card-body mb-3 mt-3">
+                                        <h1 class="pt-2">Course Name</h1>
+                                        <p class="card-text pt-2">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                                        <h1 class="pt-2" style="color:green;font-size:1.1em;font-weight:700;">19.99$</h1>
+                                        <a class="btn w-100" style="background-color:darkviolet;border-radius:0px;">Course Details</a>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col">
+                                <div class="card" style="width: 22rem;border-radius:5px;">
+                                    <img src="~/Images/design-logo.png" class="card-img-top w-75 h-75 mt-3" alt="...">
+                                    <div class="card-body mb-3 mt-3">
+                                        <h1 class="pt-2">Course Name</h1>
+                                        <p class="card-text pt-2">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                                        <h1 class="pt-2" style="color:green;font-size:1.1em;font-weight:700;">19.99$</h1>
+                                        <a class="btn w-100" style="background-color:darkviolet;border-radius:0px;">Course Details</a>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+
+                    </div>
+                    <div class="carousel-item">
+                        <div class="row">
+                            <div class="col">
+                                <div class="card" style="width: 22rem;border-radius:5px;">
+                                    <img src="~/Images/design-logo.png" class="card-img-top w-75 h-75 mt-3" alt="...">
+                                    <div class="card-body mb-3 mt-3">
+                                        <h1 class="pt-2">Course Name</h1>
+                                        <p class="card-text pt-2">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                                        <h1 class="pt-2" style="color:green;font-size:1.1em;font-weight:700;">19.99$</h1>
+                                        <a class="btn w-100" style="background-color:darkviolet;border-radius:0px;">Course Details</a>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col">
+                                <div class="card" style="width: 22rem;border-radius:5px;">
+                                    <img src="~/Images/design-logo.png" class="card-img-top w-75 h-75 mt-3" alt="...">
+                                    <div class="card-body mb-3 mt-3">
+                                        <h1 class="pt-2">Course Name</h1>
+                                        <p class="card-text pt-2">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                                        <h1 class="pt-2" style="color:green;font-size:1.1em;font-weight:700;">19.99$</h1>
+                                        <a class="btn w-100" style="background-color:darkviolet;border-radius:0px;">Course Details</a>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col">
+                                <div class="card" style="width: 22rem;border-radius:5px;">
+                                    <img src="~/Images/design-logo.png" class="card-img-top w-75 h-75 mt-3" alt="...">
+                                    <div class="card-body mb-3 mt-3">
+                                        <h1 class="pt-2">Course Name</h1>
+                                        <p class="card-text pt-2">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                                        <h1 class="pt-2" style="color:green;font-size:1.1em;font-weight:700;">19.99$</h1>
+                                        <a class="btn w-100" style="background-color:darkviolet;border-radius:0px;">Course Details</a>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col">
+                                <div class="card" style="width: 22rem;border-radius:5px;">
+                                    <img src="~/Images/design-logo.png" class="card-img-top w-75 h-75 mt-3" alt="...">
+                                    <div class="card-body mb-3 mt-3">
+                                        <h1 class="pt-2">Course Name</h1>
+                                        <p class="card-text pt-2">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                                        <h1 class="pt-2" style="color:green;font-size:1.1em;font-weight:700;">19.99$</h1>
+                                        <a class="btn w-100" style="background-color:darkviolet;border-radius:0px;">Course Details</a>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col">
+                                <div class="card" style="width: 22rem;border-radius:5px;">
+                                    <img src="~/Images/design-logo.png" class="card-img-top w-75 h-75 mt-3" alt="...">
+                                    <div class="card-body mb-3 mt-3">
+                                        <h1 class="pt-2">Course Name</h1>
+                                        <p class="card-text pt-2">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                                        <h1 class="pt-2" style="color:green;font-size:1.1em;font-weight:700;">19.99$</h1>
+                                        <a class="btn w-100" style="background-color:darkviolet;border-radius:0px;">Course Details</a>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                    <div class="carousel-item">
+                        <div class="row">
+                            <div class="col">
+                                <div class="card" style="width: 22rem;border-radius:5px;">
+                                    <img src="~/Images/design-logo.png" class="card-img-top w-75 h-75 mt-3" alt="...">
+                                    <div class="card-body mb-3 mt-3">
+                                        <h1 class="pt-2">Course Name</h1>
+                                        <p class="card-text pt-2">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                                        <h1 class="pt-2" style="color:green;font-size:1.1em;font-weight:700;">19.99$</h1>
+                                        <a class="btn w-100" style="background-color:darkviolet;border-radius:0px;">Course Details</a>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col">
+                                <div class="card" style="width: 22rem;border-radius:5px;">
+                                    <img src="~/Images/design-logo.png" class="card-img-top w-75 h-75 mt-3" alt="...">
+                                    <div class="card-body mb-3 mt-3">
+                                        <h1 class="pt-2">Course Name</h1>
+                                        <p class="card-text pt-2">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                                        <h1 class="pt-2" style="color:green;font-size:1.1em;font-weight:700;">19.99$</h1>
+                                        <a class="btn w-100" style="background-color:darkviolet;border-radius:0px;">Course Details</a>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col">
+                                <div class="card" style="width: 22rem;border-radius:5px;">
+                                    <img src="~/Images/design-logo.png" class="card-img-top w-75 h-75 mt-3" alt="...">
+                                    <div class="card-body mb-3 mt-3">
+                                        <h1 class="pt-2">Course Name</h1>
+                                        <p class="card-text pt-2">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                                        <h1 class="pt-2" style="color:green;font-size:1.1em;font-weight:700;">19.99$</h1>
+                                        <a class="btn w-100" style="background-color:darkviolet;border-radius:0px;">Course Details</a>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col">
+                                <div class="card" style="width: 22rem;border-radius:5px;">
+                                    <img src="~/Images/design-logo.png" class="card-img-top w-75 h-75 mt-3" alt="...">
+                                    <div class="card-body mb-3 mt-3">
+                                        <h1 class="pt-2">Course Name</h1>
+                                        <p class="card-text pt-2">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                                        <h1 class="pt-2" style="color:green;font-size:1.1em;font-weight:700;">19.99$</h1>
+                                        <a class="btn w-100" style="background-color:darkviolet;border-radius:0px;">Course Details</a>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col">
+                                <div class="card" style="width: 22rem;border-radius:5px;">
+                                    <img src="~/Images/design-logo.png" class="card-img-top w-75 h-75 mt-3" alt="...">
+                                    <div class="card-body mb-3 mt-3">
+                                        <h1 class="pt-2">Course Name</h1>
+                                        <p class="card-text pt-2">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                                        <h1 class="pt-2" style="color:green;font-size:1.1em;font-weight:700;">19.99$</h1>
+                                        <a class="btn w-100" style="background-color:darkviolet;border-radius:0px;">Course Details</a>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+                <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControls2" data-bs-slide="prev">
+                    <i style="color:black;" class="fa-solid fa-circle-chevron-left fa-2xl me-5"></i>
+                    <span class="visually-hidden">Previous</span>
+                </button>
+                <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleControls2" data-bs-slide="next">
+                    <i style="color:black;" class="fa-solid fa-circle-chevron-right fa-2xl ms-5"></i>
+                    <span class="visually-hidden">Next</span>
+                </button>
+            </div>
+        </div>
+    </div>
+</div>
+@if (User.Identity.IsAuthenticated)
+{
+    if (Model.AdminOrUser == true)
+    {
+        <li class="nav-item d-none d-lg-block">
+            <a class="nav-link mx-2" asp-controller="Admin" asp-action="Index">Admin Profile</a>
+        </li>
+
+    }
+}*@

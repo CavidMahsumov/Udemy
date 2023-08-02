@@ -1,0 +1,319 @@
+﻿@model Udemy.WebUI.Models.UserViewModel;
+
+@{
+    Layout = "~/Views/Shared/_LayoutForUser.cshtml";
+}
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css" integrity="sha512-MV7K8+y+gLIBoVD59lQIYicR65iaqukzvf/nwasF0nqhPay5w/9lJmVM2hMDcnK1OnMGCdVK+iQrJ7lzPJQd1w==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+<style>
+    a {
+        cursor: pointer;
+    }
+
+    li {
+        border: 0;
+    }
+
+    /*.list-group-item {
+                                        color: black;
+                                        transition: 0.3s;
+                                    }
+
+                                        .list-group-item:hover {
+                                            background-color: blueviolet;
+                                            color: white;
+                                            transition: background-color 0.3s;
+                                        }*/
+
+    .card {
+        background-color: whitesmoke;
+        width: 350px;
+        cursor: pointer;
+        transition: 0.5s;
+    }
+
+        .card:hover {
+            background-color: darkgrey;
+            transition: 0.5s;
+        }
+
+</style>
+
+<div class="d-none d-xl-block">
+
+
+    <div class="mt-auto w-100 text-center d-xl-block d-none" style="background-color:black;">
+        <div class="mx-auto pt-4 me-5">
+            <a style="color:darkviolet;" class="fw-bold">Development</a> <span class="text-white"> > </span> <a class="fw-bold" style="color:darkviolet;">Web Development</a>  <span class="text-white"> > </span> <a class="fw-bold" style="color:darkviolet;">PHP</a>
+        </div>
+        <div class="mx-auto pt-2 me-5 ms-5 w-50">
+            <h1 class="text-white fw-bold text-start ms-5">PHP Dersleri sifirdan : Oracle</h1>
+            <h4 class="mt-1 text-white text-start ms-5 pt-3">Build real world application using ASP.NET Core MVC, Build real world application using ASP.NET Core MVC, Build real world application using ASP.NET Core MVC, Entity Framework Core and ASP.NET Core Identity.</h4>
+            <p class="mt-1 pt-2 text-white text-start ms-5 pb-5">Created by : <a style="color:darkviolet;" class="fw-200">Murad Sadikhov</a></p>
+
+            <a class="text-center w-25 btn text-white fw-bold fs-5 border-0 rounded-0" style="background-color:darkviolet;  margin-left:-3em; margin-top:-8em;">Add to Cart</a>
+            <a class="text-center btn border-0 rounded-0" style="background-color:white;  margin-left:1em; margin-top:-10em;"> <i class="fa-regular fa-heart fa-lg"></i> </a>
+
+        </div>
+    </div>
+
+    <div class="d-xl-block d-none" style="margin-left:63%;margin-top:-16%;">
+
+
+        <div class="d-inline-block card mt-5 ms-3 border-0 mx-3">
+            <img class="card-img-top p-3" height="200" src="~/Images/php.png" />
+            <div class="card-body pt-3">
+                <h2 class="card-title fw-200">
+                    PHP Dersleri sifirdan : Oracle
+                </h2>
+                <p class="card-text fs-2">
+                    Murad Sadikhov
+                </p>
+                <p class="card-text fs-3 fw-bold">
+                    84.99$
+                </p>
+
+            </div>
+        </div>
+    </div>
+
+    <div class="container h-25 mt-0 bg-white border-1 border-dark rounded-0">
+        <h1 class="fw-bold pt-3 ps-1">What you'll learn</h1>
+        <div class="w-75 h-75 mt-2">
+            <ul class="list-group list-group-horizontal">
+                <li class="list-group-item">Learn structure of ASP NET MVC Core (.NET 6) Project</li>
+                <li class="list-group-item">Learn structure of ASP NET MVC Core (.NET 6) Project</li>
+            </ul>
+            <ul class="list-group list-group-horizontal">
+                <li class="list-group-item">Learn structure of ASP NET MVC Core (.NET 6) Project</li>
+                <li class="list-group-item">Learn structure of ASP NET MVC Core (.NET 6) Project</li>
+            </ul>
+            <ul class="list-group list-group-horizontal">
+                <li class="list-group-item">Learn structure of ASP NET MVC Core (.NET 6) Project</li>
+                <li class="list-group-item">Learn structure of ASP NET MVC Core (.NET 6) Project</li>
+            </ul>
+            <ul class="list-group list-group-horizontal">
+                <li class="list-group-item">Learn structure of ASP NET MVC Core (.NET 6) Project</li>
+                <li class="list-group-item">Learn structure of ASP NET MVC Core (.NET 6) Project</li>
+            </ul>
+            <ul class="list-group list-group-horizontal">
+                <li class="list-group-item">Learn structure of ASP NET MVC Core (.NET 6) Project</li>
+                <li class="list-group-item">Learn structure of ASP NET MVC Core (.NET 6) Project</li>
+            </ul>
+            <ul class="list-group list-group-horizontal">
+                <li class="list-group-item">Learn structure of ASP NET MVC Core (.NET 6) Project</li>
+                <li class="list-group-item">Learn structure of ASP NET MVC Core (.NET 6) Project</li>
+            </ul>
+            <ul class="list-group list-group-horizontal">
+                <li class="list-group-item">Learn structure of ASP NET MVC Core (.NET 6) Project</li>
+                <li class="list-group-item">Learn structure of ASP NET MVC Core (.NET 6) Project</li>
+            </ul>
+            <ul class="list-group list-group-horizontal">
+                <li class="list-group-item">Learn structure of ASP NET MVC Core (.NET 6) Project</li>
+                <li class="list-group-item">Learn structure of ASP NET MVC Core (.NET 6) Project</li>
+            </ul>
+        </div>
+    </div>
+
+
+    <div class="container mt-5 bg-white">
+        <h1 class="fw-bold pt-3 ps-1">Requirements</h1>
+        <ul>
+            <li>
+
+                <p class="pt-2 ps-2">
+                    Basic knowledge on computers is required. Basic knowledge on any one programming language is preferable.
+                </p>
+            </li>
+        </ul>
+
+        <h1 class="fw-bold mt-5 ps-1">Description</h1>
+        <p class="w-50 text-black pt-2 ps-2">
+            In this Front-End Web Development - Complete Guide (Step by Step) [Updated 2022] you will learn complete front-end web development from scratch. As part of the course, You will learn complete HTML5, and CSS3 step by step.
+
+            Later you will learn how to use, integrate or add user interactivity with the help of JavaScript. This course also covers the latest JavaScript version which is ECMA Script learn the modern JavaScript techniques with ECMA Script 6 or later.
+
+            The next big step would be to learn Bootstrap 5 which is the latest and the most popular CSS framework available. Here you will learn to create 3 Live Projects. In the 1st project, you will learn to create an EMS Web App also known as Employee Management System.
+
+            2nd the project we will see how to create a full blog for beginners to Advanced Levels. For the 3rd project, you will create a professional website.
+
+            Once you have completed Bootstrap 5 the next topic would be to get started with Angular. In the Angular Topic, you will learn the beginner’s level to integrate angular to any HTML5 and CSS3 App.
+
+            Then with the help of React JS, we will see how to build a Scratch Pad App from Beginner to Advanced level. After that you will learn about Create React App tool, used to build React applications. With the help of Bootstrap 5, you will learn to build a Practical web application with React.
+
+            As the project, you will learn to create a web application, which will manage the user data via API. In the web application, we allow the users to create new data, Read data and also Delete data from the application itself.
+
+            I will be always available in the Q & A section for any help. Please feel free to ask any doubts and queries during the course.
+        </p>
+    </div>
+
+    <div class="container mt-5 bg-white">
+        <h1 class="fw-bold pt-3 ps-1">Instructor</h1>
+        <a class="pt-2 ps-2 fs-4" style="color:blueviolet;">Murad Sadikhov</a>
+        <p class="pt-1 ps-2 fs-5" style="color:darkgray;">Python Programmer. Founder and Author, PythonHow.</p>
+        <img class="mt-1 ms-1 rounded-circle d-inline-block" src="~/Images/20221127_005741.jpg" width="120" height="140" />
+        <div style="margin-left:150px;margin-top:-160px;">
+
+            <div class="d-block ms-2 mt-5">
+                <i class="fa-solid fa-comment d-inline-block"></i>
+                <p class="ms-1 d-inline-block">76.000 comment</p>
+            </div>
+            <div class="d-block ms-2">
+                <i class="fa-solid fa-comment d-inline-block"></i>
+                <p class="ms-1 d-inline-block">76.000 comment</p>
+            </div>
+            <div class="d-block ms-2">
+                <i class="fa-solid fa-comment d-inline-block"></i>
+                <p class="ms-1 d-inline-block">76.000 comment</p>
+            </div>
+        </div>
+        <p class="w-50 text-black pt-2 ps-2">
+            Hi, I am Ardit! I am a Python programmer, teacher, and founder of PythonHow. I graduated in 2013 with a Master of Science in Geospatial Technologies from the University of Muenster in Germany with a focus on using Python for remote sensing.
+
+            I have worked with companies from various countries, such as the Center for Conservation Geography, to map and understand Australian ecosystems, image processing with the Swiss in-Terra, and performing data mining to gain business insights with the Australian Rapid Intelligence.
+
+            If you want to learn Python through my courses, I propose the following learning path: Start with The Python Mega Course 2022: Build 10 Real-World Applications. Students love that course as a comprehensive real-world guide to Python and building programs with Python. After finishing that course, take my Automate Everything with Python course if you want to use Python to make small-to-medium programs. That course contains everything you need to start using Python as your swiss army knife. On the other hand, if you are interested in making large applications, my advanced course Advanced Python: Python OOP with 10 Real-World Programs would be a better choice. All the courses are listed here on my Udemy profile page.
+        </p>
+    </div>
+</div>
+
+
+@*Responsive design*@
+<div class="d-block d-xl-none">
+    <div class="mt-auto w-100" style="background-color:whitesmoke;text-align:center;height:50px;display:flex;align-items:center;justify-content:center;">
+        <a style="color:darkviolet;" class="fw-bold">Development</a> <span class="text-black"> > </span> <a class="fw-bold" style="color:darkviolet;">Web Development</a>  <span class="text-black"> > </span> <a class="fw-bold" style="color:darkviolet;">PHP</a>
+    </div>
+
+    <div class="container container-md container-sm" style="text-align:center;margin-bottom:50px;">
+        <img class="w-100 bg-black" height="30%" src="~/Images/php.png" />
+        <div style="text-align:start">
+            <h1 class="pt-3">
+                Php dersleri
+            </h1>
+            <p class="pt-2">
+                Become a Full-Stack Web Developer with just ONE course. HTML, CSS, Javascript, Node, React, MongoDB, Web3 and DApps
+            </p>
+            <p class="fw-bold">Created by : <a style="color:darkviolet;">Murad Sadikhov</a></p>
+            <h1>
+                99.99$
+            </h1>
+        </div>
+        <div class="mt-5">
+            <a class="text-center w-75 btn text-white fw-bold fs-5 border-0 rounded-0" style="background-color:darkviolet;">Add to Cart</a>
+            <a class="text-center btn fs-5" style="background-color:white; border:1px solid black;border-radius:0px;"> <i class="fa-regular fa-heart fa-lg"></i> </a>
+        </div>
+
+        <div class="w-100 mt-3" style="border:1px solid black;text-align:start;">
+            <h1 class="p-4" style="font-size:2em;font-weight:500;">What you Learn</h1>
+            <ul style="list-style:none;">
+                <li>
+                    <i class="fa-solid fa-check fa-lg d-none d-sm-inline-block"></i>
+                    <p class="d-inline-block ps-sm-3">
+                        Build 16 web development projects for your portfolio, ready to apply for junior developer jobs.
+                    </p>
+                </li>
+                <li>
+                    <i class="fa-solid fa-check fa-lg d-none d-sm-inline-block"></i>
+                    <p class="d-inline-block ps-sm-3">
+                        Build 16 web development projects for your portfolio, ready to apply for junior developer jobs.
+                    </p>
+                </li>
+                <li>
+                    <i class="fa-solid fa-check fa-lg d-none d-sm-inline-block"></i>
+                    <p class="d-inline-block ps-sm-3">
+                        Build 16 web development projects for your portfolio, ready to apply for junior developer jobs.
+                    </p>
+                </li>
+                <li>
+                    <i class="fa-solid fa-check fa-lg d-none d-sm-inline-block"></i>
+                    <p class="d-inline-block ps-sm-3">
+                        Build 16 web development projects for your portfolio, ready to apply for junior developer jobs.
+                    </p>
+                </li>
+                <li>
+                    <i class="fa-solid fa-check fa-lg d-none d-sm-inline-block"></i>
+                    <p class="d-inline-block ps-sm-3">
+                        Build 16 web development projects for your portfolio, ready to apply for junior developer jobs.
+                    </p>
+                </li>
+            </ul>
+        </div>
+        <hr class="mt-3" />
+        <div class="pt-2" style="text-align:start;">
+
+            <h1>
+                Requirements
+            </h1>
+            <ul>
+                <li class="mt-2">
+                    Build 16 web development projects for your portfolio, ready to apply for junior developer jobs.
+                </li>
+                <li class="mt-2">
+                    Build 16 web development projects for your portfolio, ready to apply for junior developer jobs.
+                </li>
+                <li class="mt-2">
+                    Build 16 web development projects for your portfolio, ready to apply for junior developer jobs.
+                </li>
+                <li class="mt-2">
+                    Build 16 web development projects for your portfolio, ready to apply for junior developer jobs.
+                </li>
+                <li class="mt-2">
+                    Build 16 web development projects for your portfolio, ready to apply for junior developer jobs.
+                </li>
+            </ul>
+        </div>
+        <hr class="mt-3" />
+        <div class="pt-2" style="text-align:start;">
+
+            <h1>
+                Description
+            </h1>
+            <p class="pt-2">
+                Welcome to the Complete Web Development Bootcamp, the only course you need to learn to code and become a full-stack web developer. With 150,000+ ratings and a 4.8 average, my Web Development course is one of the HIGHEST RATED courses in the history of Udemy!
+
+                At 65+ hours, this Web Development course is without a doubt the most comprehensive web development course available online. Even if you have zero programming experience, this course will take you from beginner to mastery. Here's why:
+            </p>
+        </div>
+
+        <hr class="mt-3" />
+        <div class="mt-3" style="text-align:start;">
+            <h1>
+                Instructor
+            </h1>
+            <a style="color:darkviolet;font-size:1.2em;">Murad Sadikhov</a>
+            <p style="color:darkgray;font-weight:700;">Development , Web Development</p>
+            <img class="mt-1 ms-1 rounded-circle d-inline-block" src="~/Images/20221127_005741.jpg" width="120" height="140" />
+            <div style="margin-left:150px;margin-top:-160px;">
+
+                <div class="d-block ms-2 mt-5">
+                    <i class="fa-solid fa-comment d-inline-block"></i>
+                    <p class="ms-1 d-inline-block">76.000 comment</p>
+                </div>
+                <div class="d-block ms-2">
+                    <i class="fa-solid fa-comment d-inline-block"></i>
+                    <p class="ms-1 d-inline-block">76.000 comment</p>
+                </div>
+                <div class="d-block ms-2">
+                    <i class="fa-solid fa-comment d-inline-block"></i>
+                    <p class="ms-1 d-inline-block">76.000 comment</p>
+                </div>
+            </div>
+            <p class="w-100 text-black pt-2 ps-2">
+                Hi, I am Ardit! I am a Python programmer, teacher, and founder of PythonHow. I graduated in 2013 with a Master of Science in Geospatial Technologies from the University of Muenster in Germany with a focus on using Python for remote sensing.
+
+                I have worked with companies from various countries, such as the Center for Conservation Geography, to map and understand Australian ecosystems, image processing with the Swiss in-Terra, and performing data mining to gain business insights with the Australian Rapid Intelligence.
+
+                If you want to learn Python through my courses, I propose the following learning path: Start with The Python Mega Course 2022: Build 10 Real-World Applications. Students love that course as a comprehensive real-world guide to Python and building programs with Python. After finishing that course, take my Automate Everything with Python course if you want to use Python to make small-to-medium programs. That course contains everything you need to start using Python as your swiss army knife. On the other hand, if you are interested in making large applications, my advanced course Advanced Python: Python OOP with 10 Real-World Programs would be a better choice. All the courses are listed here on my Udemy profile page.
+            </p>
+        </div>
+
+        
+
+    </div>
+    <a class="w-100 mt-5 btn fixed-bottom" style="background-color:darkviolet;text-align:center; font-size:1.5em;color:white; border-radius:0px;">Buy Now</a>
+</div>
+
+
+
+
